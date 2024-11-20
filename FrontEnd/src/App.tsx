@@ -7,6 +7,9 @@ function App() {
     <>
     <div>
       <h1>DIE-ATE Planner</h1>
+      <div>
+        hello
+      </div>
     </div>
       
 
