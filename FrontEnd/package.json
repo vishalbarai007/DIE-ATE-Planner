@@ -10,9 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.17.10",
+    "@types/three": "^0.170.0",
+    "aceternity": "^1.0.1",
     "aceternity-ui": "^0.2.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.17",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4",
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

@@ -1,19 +1,10 @@
+import Homepage from "./pages/Homepage"
 
-import './App.css'
-
-function App() {
-
+const App = () => {
   return (
-    <>
     <div>
-      <h1>DIE-ATE Planner</h1>
-      <div>
-        hello
-      </div>
+          <Homepage/>      
     </div>
-      
-
-    </>
   )
 }
 
