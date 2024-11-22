@@ -1,9 +1,9 @@
-import Homepage from "./pages/Homepage"
+import Carousel from "./components/ReusableComponents/Carousel"
 
 const App = () => {
   return (
     <div>
-          <Homepage/>      
+          <Carousel/>    
     </div>
   )
 }
