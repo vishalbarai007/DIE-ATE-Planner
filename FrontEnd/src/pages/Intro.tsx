@@ -1,11 +1,9 @@
-import { BackgroundBoxesDemo } from "../components/ReusableComponents/Background-Box"
+import React from 'react'
 
-const Intro = () => {
+export default function Intro() {
   return (
     <div>
-      <BackgroundBoxesDemo/>
+      something
     </div>
   )
 }
-
-export default Intro

@@ -1,9 +1,10 @@
-import Carousel from "./components/ReusableComponents/Carousel"
+import Intro from "./pages/Intro"
+
 
 const App = () => {
   return (
     <div>
-          <Carousel/>    
+      <Intro/>
     </div>
   )
 }
