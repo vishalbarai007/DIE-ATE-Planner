@@ -1,7 +1,11 @@
 import { Splide, SplideSlide, SplideProps } from '../../../node_modules/@splidejs/react-splide';
+import { BackgroundLines } from '../AceternityComponents/support/background-lines';
+import { Input } from '../AceternityComponents/support/input';
+// import BackgroundLines from '../AceternityComponents/main/BackgroundLines';
 
 // import '@splidejs/splide/css';
-import BackgroundBoxesDemo from '../AceternityComponents/main/BackGroundBoxesDemo';
+// import BackgroundLines from '../AceternityComponents/main/BackgroundLines';
+
 
 const Carousel = () => {
     const options: SplideProps['options'] = {
@@ -13,25 +17,31 @@ const Carousel = () => {
             <Splide options={options}>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <h1 className="text-white text-5xl font-bold mb-4">
                                     Enter your age?
                                 </h1>
-                                <input
+                                {/* <input
                                     type="number"
                                     name="age"
                                     id="age"
                                     placeholder="Age"
                                     className="rounded-lg border text-xl pl-5 border-neutral-800 focus:ring-2 focus:ring-teal-500 w-28 bg-neutral-950 placeholder:text-neutral-700"
-                                />
+                                /> */}
+                                <Input type="number"
+                                    name="age"
+                                    id="age"
+                                    placeholder="Age" />
+                                
+                                
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <h1 className="text-white text-5xl font-bold mb-4">Select your gender?</h1>
                                 {/* <div className='w-full flex justify-center absolute z-10 top-80'> */}
@@ -42,12 +52,12 @@ const Carousel = () => {
                                 </div>
                                 {/* </div> */}
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <h1 className="text-white text-5xl font-bold mb-4">Do you have any chronic conditions (eg. diabetes, hypertension)?</h1>
                                 {/* <div className='w-full flex justify-center absolute z-10 top-80'> */}
@@ -59,7 +69,7 @@ const Carousel = () => {
                                 </div>
                                 {/* </div> */}
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
             </Splide>
