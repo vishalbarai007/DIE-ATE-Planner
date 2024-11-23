@@ -1,6 +1,5 @@
 import Intro from "./pages/Intro"
 
-
 const App = () => {
   return (
     <div>

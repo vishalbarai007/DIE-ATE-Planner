@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@react-three/fiber": "^8.17.10",
-    "@splidejs/react-splide": "^0.7.12",
     "aceternity": "^1.0.1",
     "aceternity-ui": "^0.2.2",
     "clsx": "^2.1.1",
