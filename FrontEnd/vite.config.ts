@@ -3,7 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  optimizeDeps: {
-    include: ['@splidejs/react-splide'],
-  },
+  base: '/', // Use '/' for root-level hosting
 });
