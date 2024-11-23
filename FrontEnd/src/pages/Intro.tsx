@@ -1,9 +1,9 @@
-import React from 'react'
+import Carousel from '../components/AceternityComponents/main/Carousel'
 
 export default function Intro() {
   return (
     <div>
-      something
+      <Carousel/>
     </div>
   )
 }

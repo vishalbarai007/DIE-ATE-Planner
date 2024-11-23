@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { BackgroundBeams } from "../ui/background-beams";
+import { BackgroundBeams } from "../support/background-beams";
 
 export function BackgroundBeamsDemo() {
   return (
