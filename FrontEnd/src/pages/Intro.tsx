@@ -1,12 +1,9 @@
-import { BackgroundBoxesDemo } from "../components/AceternityComponents/main/BackGroundBoxesDemo"
+import Carousel from '../components/AceternityComponents/main/Carousel'
 
-const Intro = () => {
+export default function Intro() {
   return (
-    <div className="bg-zinc-900 h-screen w-full">
-      <BackgroundBoxesDemo/>
-      <h1>hello world</h1>
+    <div>
+      <Carousel/>
     </div>
   )
 }
-
-export default Intro
