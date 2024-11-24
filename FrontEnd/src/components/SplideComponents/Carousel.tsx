@@ -26,8 +26,6 @@ const Carousel = () => {
                                 <h1 className="text-white text-4xl mb-10">
                                     Enter your age
                                 </h1>
-                                <input type="number" name="age" id="age" placeholder="Age" className="rounded-lg border text-xl pl-5 border-neutral-800 focus:ring-2 focus:ring-teal-500 w-28 bg-neutral-950 placeholder:text-neutral-700" />
-
                                 {/* <input
                                     type="number"
                                     name="age"
