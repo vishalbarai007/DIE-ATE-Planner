@@ -9,3 +9,40 @@ body{
     background-color: black;
 
 }
+
+/* Add this CSS to your stylesheet */
+.custom-arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.custom-arrow {
+    background: none;
+    background-color: none;
+    border: none;
+    color: white;
+    padding: 10px 60px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    transition: color 0s ease-in-out;
+}
+
+.custom-arrow:hover{
+    background-color: white;
+    color: black;
+    transition: color 0.3s ease-in-out;
+}
+
+.custom-prev::before {
+    content: 'Previous';
+}
+
+.custom-next::before {
+    content: 'Next';
+}
