@@ -12,37 +12,32 @@ body{
 
 /* Add this CSS to your stylesheet */
 .custom-arrows {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    top: 90%;
-    transform: translateY(-50%);
-    z-index: 10;
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    position: absolute !important;
+    top: 90% !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    padding: 1rem 2rem !important;
 }
-
 .custom-arrow {
-    background: none;
-    background-color: none;
-    border: none;
-    color: white;
-    padding: 10px 60px;
-    font-size: 1.7rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-    transition: color 0s ease-in-out;
+    background: none !important;
+    border: 2px solid white !important;
+    color: white !important;
+    padding: 10px 50px !important;
+    font-size: 1.2rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+    border-radius: 30px !important;
 }
-
-.custom-arrow:hover{
-    background-color: white;
-    color: black;
-    transition: color 0.3s ease-in-out;
+.custom-arrow:hover {
+    background-color: white !important;
+    color: black !important;
 }
-
 .custom-prev::before {
-    content: 'Previous';
+    content: 'Previous' !important;
 }
-
 .custom-next::before {
-    content: 'Next';
+    content: 'Next' !important;
 }
