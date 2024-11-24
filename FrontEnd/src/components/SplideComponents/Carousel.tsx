@@ -1,6 +1,7 @@
 import { Splide, SplideSlide, SplideProps } from '../../../node_modules/@splidejs/react-splide';
-// import '@splidejs/splide/css';
-import BackgroundBoxesDemo from '../AceternityComponents/main/BackGroundBoxesDemo';
+import { BackgroundLines } from '../AceternityComponents/support/background-lines';
+import { Input } from '../AceternityComponents/support/input';
+
 
 const Carousel = () => {
     const options: SplideProps['options'] = {
@@ -19,20 +20,29 @@ const Carousel = () => {
             <Splide options={options}>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
-                            <div className="font-bold relative z-10 text-6xl mb-28">AGE</div>
+
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <h1 className="text-white text-4xl mb-10">
                                     Enter your age
                                 </h1>
                                 <input type="number" name="age" id="age" placeholder="Age" className="rounded-lg border text-xl pl-5 border-neutral-800 focus:ring-2 focus:ring-teal-500 w-28 bg-neutral-950 placeholder:text-neutral-700" />
+
+                                {/* <input
+                                    type="number"
+                                    name="age"
+                                    id="age"
+                                    placeholder="Age"
+                                    className="rounded-lg border text-xl pl-5 border-neutral-800 focus:ring-2 focus:ring-teal-500 w-28 bg-neutral-950 placeholder:text-neutral-700"
+                                /> */}
+                                <Input type="number" name="age" id="age" placeholder="Age" />
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <div className="font-bold relative z-10 text-6xl mb-28">GENDER</div>
                                 <h1 className="text-white text-4xl mb-10">Select your gender</h1>
@@ -55,25 +65,25 @@ const Carousel = () => {
                                 </div>
                                 {/* </div> */}
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
                     <div className='relative h-full w-full flex flex-col items-center justify-center'>
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <div className="font-bold relative z-10 text-6xl mb-24">HEIGHT & WEIGHT</div>
                                 <h1 className="text-white text-4xl mb-7">Enter your height in cms</h1>
-                                <input type="number" name="height" id="height" placeholder="Height" className="rounded-lg border text-xl pl-5 mb-14 border-neutral-800 focus:ring-2 focus:ring-teal-500 w-28 bg-neutral-950 placeholder:text-neutral-700" />
+                                <Input type="number" name="age" id="age" placeholder="Height" />
                                 <h1 className="text-white text-4xl mb-7">Enter your weight in kgs</h1>
-                                <input type="number" name="height" id="height" placeholder="Weight" className="rounded-lg border text-xl pl-5 border-neutral-800 focus:ring-2 focus:ring-teal-500 w-28 bg-neutral-950 placeholder:text-neutral-700" />
+                                <Input type="number" name="age" id="age" placeholder="Weight" />
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <div className="font-bold relative z-10 text-6xl mb-28">CHRONIC CONDITIONS</div>
                                 <h1 className="text-white text-4xl mb-10">Do you have any chronic conditions ? (eg. diabetes, hypertension)</h1>
@@ -85,12 +95,12 @@ const Carousel = () => {
                                     </div>
                                 </div>
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
                     <div className="relative h-full w-full flex flex-col items-center justify-center">
-                        <BackgroundBoxesDemo>
+                        <BackgroundLines>
                             <div className="h-fit w-fit flex flex-col justify-center z-50 items-center">
                                 <div className="font-bold relative z-10 text-6xl mb-20">GOAL</div>
                                 <h1 className="text-white text-4xl mb-10">What is your primary goal ?</h1>
@@ -111,7 +121,7 @@ const Carousel = () => {
                                     <div><svg xmlns="http://www.w3.org/2000/svg" height="32" width="40" viewBox="0 0 640 512"><path fill="#f7f7f8" d="M96 64c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 160 0 64 0 160c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-64-32 0c-17.7 0-32-14.3-32-32l0-64c-17.7 0-32-14.3-32-32s14.3-32 32-32l0-64c0-17.7 14.3-32 32-32l32 0 0-64zm448 0l0 64 32 0c17.7 0 32 14.3 32 32l0 64c17.7 0 32 14.3 32 32s-14.3 32-32 32l0 64c0 17.7-14.3 32-32 32l-32 0 0 64c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-160 0-64 0-160c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32zM416 224l0 64-192 0 0-64 192 0z" /></svg></div>
                                 </button>
                             </div>
-                        </BackgroundBoxesDemo>
+                        </BackgroundLines>
                     </div>
                 </SplideSlide>
             </Splide>
