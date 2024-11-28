@@ -136,13 +136,13 @@ const Carousel = () => {
                                                 type="button"
                                                 key={index}
                                                 onClick={() => handleGoalSelect(goalItem.name)}
-                                                className={`items-center rounded-lg flex justify-between px-4 py-2 border text-xl mb-4 w-72 ${goal === goalItem.name
+                                                className={`items-center rounded-lg flex justify-between px-2 py-2 border text-xl mb-4 w-72 ${goal === goalItem.name
                                                         ? 'bg-teal-600 border-teal-500'
                                                         : 'bg-neutral-950 border-neutral-800 hover:bg-slate-700'
                                                     }`}
                                             >
                                                 <span>{goalItem.name}</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 640 512">
                                                     <path fill="#ffffff" d={goalItem.icon} />
                                                 </svg>
                                             </button>

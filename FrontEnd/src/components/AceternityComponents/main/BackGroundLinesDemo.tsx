@@ -1,4 +1,3 @@
-"use client";
 import { BackgroundLines } from "../../AceternityComponents/support/background-lines";
 
 const BackgroundLinesDemo: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
