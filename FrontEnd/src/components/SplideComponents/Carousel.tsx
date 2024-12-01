@@ -142,7 +142,7 @@ const Carousel = () => {
                                                     }`}
                                             >
                                                 <span>{goalItem.name}</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 640 512">
                                                     <path fill="#ffffff" d={goalItem.icon} />
                                                 </svg>
                                             </button>
