@@ -1,12 +1,10 @@
-// import React from 'react'
-// import { SignupFormDemo } from '../components/AceternityComponents/main/SignUpForm'
 
-// const Login = () => {
-//   return (
-//     <div>
+const Login = () => {
+  return (
+    <div>
+        hello 
+    </div>
+  )
+}
 
-//     </div>
-//   )
-// }
-
-// export default Login;
+export default Login;
