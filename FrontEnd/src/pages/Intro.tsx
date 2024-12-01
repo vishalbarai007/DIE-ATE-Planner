@@ -1,4 +1,5 @@
 // import InputCarousel from '../components/DeveloperDefineComponents/InputCarousel'
+import { SignupFormDemo } from '../components/AceternityComponents/main/SignUpForm'
 import Carousel from '../components/SplideComponents/Carousel'
 
 export default function Intro() {
@@ -6,6 +7,7 @@ export default function Intro() {
     <div>
       <Carousel/>
       {/* <InputCarousel/> */}
+      <SignupFormDemo/>
     </div>
   )
 }

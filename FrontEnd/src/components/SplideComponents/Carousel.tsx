@@ -2,6 +2,8 @@ import { Splide, SplideSlide, SplideProps } from '../../../node_modules/@splidej
 import { useState } from 'react';
 import { BackgroundLines } from '../AceternityComponents/support/background-lines';
 import { Input } from '../AceternityComponents/support/input';
+import { Link } from 'react-router-dom';
+
 
 const Carousel = () => {
     const [goal, setGoal] = useState<string | null>(null); // To store the selected goal
@@ -32,7 +34,9 @@ const Carousel = () => {
 
         console.log('Submitted Form Data:', formValues);
         alert('Form submitted successfully!');
+
     };
+
     const options: SplideProps['options'] = {
         perPage: 1,
         gap: '1rem',
@@ -147,13 +151,16 @@ const Carousel = () => {
                                                 </svg>
                                             </button>
                                         ))}
+                                        <Link to="SignUpForm" >
                                         <button
                                             type="submit"
                                             className="mt-6 ml-20 px-6 py-3 text-lg  border font-semibold bg-neutral-950 border-neutral-800 hover:bg-teal-600 rounded-lg"
-                                            onClick={() => handleSubmit}
+                                            // onClick={handleSubmit}
+
                                         >
-                                            Submit
+                                            Submit 
                                         </button>
+                                        </Link>
                                     </form>
                                 </div>
                             </BackgroundLines>
