@@ -22,3 +22,36 @@ const Label = React.forwardRef<
 Label.displayName = LabelPrimitive.Root.displayName;
 
 export { Label };
+
+// export const Label = ({
+//   htmlFor,
+//   children,
+//   isDarkMode,
+//   className,
+// }: {
+//   htmlFor: string;
+//   children: React.ReactNode;
+//   isDarkMode: boolean;
+//   className?: string;
+// }) => {
+//   return (
+//     <label
+//       htmlFor={htmlFor}
+//       className={cn(
+//         "block text-sm font-medium",
+//         isDarkMode ? "text-white" : "text-neutral-800",
+//         className
+//       )}
+//     >
+//       {children}
+//     </label>
+//   );
+// };
+
+
+
+
+
+
+
+

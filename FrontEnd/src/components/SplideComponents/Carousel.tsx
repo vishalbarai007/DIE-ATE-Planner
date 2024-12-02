@@ -151,7 +151,7 @@ const Carousel = () => {
                                                 </svg>
                                             </button>
                                         ))}
-                                        <Link to="SignUpForm" >
+                                        <Link to="Login" >
                                         <button
                                             type="submit"
                                             className="mt-6 ml-20 px-6 py-3 text-lg  border font-semibold bg-neutral-950 border-neutral-800 hover:bg-teal-600 rounded-lg"

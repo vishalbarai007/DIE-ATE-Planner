@@ -1,98 +1,157 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "../support/label";
 import { Input } from "../support/input";
 import { cn } from "../../../lib/utils";
 import {
   IconBrandGithub,
   IconBrandGoogle,
-  IconBrandOnlyfans,
 } from "@tabler/icons-react";
 
 export function SignupFormDemo() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-        Welcome to Aceternity
+    <div
+      className={cn(
+        "max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input",
+        isDarkMode
+          ? "bg-neutral-200 text-neutral-800"
+          : "bg-black text-neutral-200"
+      )}
+    >
+      <button
+        className="mb-4 p-2 rounded-md bg-blue-500 text-white"
+        onClick={toggleTheme}
+      >
+        Switch to {isDarkMode ? "Dark Mode" : "Light Mode"}
+      </button>
+
+      <h2 className="font-bold text-xl">
+        Welcome to DIE-ATE Planner
       </h2>
-      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        Login to aceternity if you can because we don&apos;t have a login flow
-        yet
+      <p className="text-sm max-w-sm mt-2">
+        Login to get your Diet Details.
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
-            <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Label htmlFor="firstname" className={cn(
+                "h-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}>First name</Label>
+            <Input id="firstname" placeholder="Hritik" type="text" />
           </LabelInputContainer>
           <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Label htmlFor="lastname" className={cn(
+                "h-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}>Last name</Label>
+            <Input id="lastname" placeholder="Gay" type="text" />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Label htmlFor="email" className={cn(
+                "h-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}>Email Address</Label>
+          <Input id="email" placeholder="hritikasuur@gmail.com" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className={cn(
+                "h-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}>Password</Label>
           <Input id="password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your twitter password</Label>
-          <Input
-            id="twitterpassword"
-            placeholder="••••••••"
-            type="twitterpassword"
-          />
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="confirm-password" className={cn(
+                "h-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}>Confirm Password</Label>
+          <Input id="confirm-password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
 
         <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className={cn(
+            "bg-gradient-to-br relative group/btn block w-full text-white rounded-md h-10 font-medium",
+            isDarkMode
+              ? "from-neutral-900 to-neutral-600 shadow-input"
+              : "from-black to-neutral-600"
+          )}
           type="submit"
         >
           Sign up &rarr;
           <BottomGradient />
         </button>
 
-        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+        <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
 
         <div className="flex flex-col space-y-4">
           <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            className={cn(
+              "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
+              isDarkMode
+                ? "bg-gray-50 text-neutral-800 shadow-sm"
+                : "bg-zinc-800 text-white shadow-md"
+
+            )}
             type="submit"
           >
-            <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              GitHub
-            </span>
+            <IconBrandGithub
+              className={cn(
+                "h-4 w-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}
+            />
+            <span>{isDarkMode ? "Yahoo " : "Yahoo "}</span>
             <BottomGradient />
           </button>
           <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            className={cn(
+              "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
+              isDarkMode
+               ? "bg-gray-50 text-neutral-800 shadow-sm"
+                : "bg-zinc-800 text-white shadow-md"
+            )}
             type="submit"
           >
-            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              Google
-            </span>
+            <IconBrandGoogle
+              className={cn(
+                "h-4 w-4 transition",
+                isDarkMode ? "text-neutral-800" : "text-white"
+              )}
+            />
+            <span>{isDarkMode ? "Google" : "Google "}</span>
             <BottomGradient />
           </button>
-          <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
-          >
-            <IconBrandOnlyfans className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              OnlyFans
-            </span>
-            <BottomGradient />
-          </button>
+
         </div>
       </form>
     </div>
