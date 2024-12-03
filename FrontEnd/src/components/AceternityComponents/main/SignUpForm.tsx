@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Label } from "../support/label";
 import { Input } from "../support/input";
 import { cn } from "../../../lib/utils";
@@ -8,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { useContext } from "react";
 import ThemeContext from "../../../contexts/theme/ThemeContext";
-import { context } from "@react-three/fiber";
+
 
 export function SignupFormDemo() {
   const context = useContext(ThemeContext);
