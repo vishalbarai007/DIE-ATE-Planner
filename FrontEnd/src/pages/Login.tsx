@@ -3,6 +3,7 @@
 
 import { useState } from "react"
 import { SignupFormDemo } from "../components/AceternityComponents/main/SignUpForm"
+import { SignInFormDemo } from "../components/DeveloperDefineComponents/SignInForm"
 
 const Login = () => {
 
@@ -28,7 +29,7 @@ const Login = () => {
 
     return (
       <div className="h-screen w-full bg-zinc-800 flex justify-center items-center">
-      <SignupFormDemo/>  
+      <SignInFormDemo/>  
       <p className='absolute left-[40%] bottom-[13%] m-3'> Didn't have Account ? <a className=' text-blue-600 cursor-pointer ' onClick={changeMode} >Sign up</a></p>
 
       </div>
