@@ -64,12 +64,26 @@ const Carousel = () => {
                                         Enter your age
                                     </h1>
                                     <Input type="number" name="age" id="age" placeholder="Age" />
-                                    <button
-                                        className="mb-4 p-2 rounded-md bg-blue-500 text-white"
-                                        onClick={context?.changeTheme}
-                                    >
-                                        Switch to {context?.theme==='light' ? "Dark Mode" : "Light Mode"}
-                                    </button>
+                                    <div className="flex items-center">
+  <label className="relative inline-flex items-center cursor-pointer">
+    <input 
+      type="checkbox" 
+      className="sr-only peer" 
+      checked={context?.theme === 'dark'} 
+      onChange={context?.changeTheme}
+    />
+    <div 
+      className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-500
+                 peer-focus:ring-2 peer-focus:ring-blue-300 peer-focus:outline-none 
+                 before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full 
+                 before:bg-white before:transition-all before:translate-x-1 peer-checked:before:translate-x-6"
+    ></div>
+    <span className="ml-3 text-sm font-medium text-white dark:text-gray-300">
+      {context?.theme === 'light' ? "Dark Mode" : "Light Mode"}
+    </span>
+  </label>
+</div>
+
                                 </div>
                             </BackgroundLines>
                         </div>
