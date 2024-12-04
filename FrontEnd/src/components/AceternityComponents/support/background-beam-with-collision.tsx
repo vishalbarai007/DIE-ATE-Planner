@@ -14,7 +14,7 @@ type BackgroundBeamsWithCollision = React.PropsWithChildren<{
 
 export const BackgroundBeamsWithCollision = ({
   children,
-  className,
+  // className,
 }: {
   children: React.ReactNode;
   className?: string;

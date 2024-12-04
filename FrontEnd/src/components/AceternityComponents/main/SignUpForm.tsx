@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { useContext } from "react";
 import ThemeContext from "../../../contexts/theme/ThemeContext";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 import { BackgroundBeams } from "../support/background-beams";
 // import BackgroundBeamsDemo from "./Background-Beams";
 
