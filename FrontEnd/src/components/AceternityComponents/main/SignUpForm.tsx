@@ -1,20 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { handleGoogleLoginWithRedirect } from "../../../../firebase";
 
 "use client";
 import React, { useState } from "react";
@@ -25,6 +9,7 @@ import {
   IconBrandGithub,
   IconBrandGoogle,
 } from "@tabler/icons-react";
+
 
 export function SignupFormDemo() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -141,6 +126,7 @@ export function SignupFormDemo() {
                 : "bg-zinc-800 text-white shadow-md"
             )}
             type="submit"
+            onClick={handleGoogleLoginWithRedirect}
           >
             <IconBrandGoogle
               className={cn(
