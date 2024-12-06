@@ -18,17 +18,13 @@ const Login = () => {
   if (Mode === "SignUp") {
     return (
       <>
-        <div className="h-screen w-full bg-zinc-950 flex justify-center items-center">
+        <div className="h-screen w-full bg-zinc-950 flex justify-center items-center flex-col ">
           <SignupFormDemo />
           <p
-            className="
-    absolute text-white 
-    left-[15%] bottom-[5%] 
-    sm:left-[10%] sm:bottom-[20%] 
-    md:left-[35%] md:bottom-[10%] 
-    xl:left-[40%] xl:bottom-[13%] 
-    m-3 z-50
-  "
+            className="text-white absolute z-20  bottom-[6%] 
+     sm:bottom-[20%] 
+     md:bottom-[10%] 
+     xl:bottom-[13%] "
           >
             Didn't have an Account?{" "}
             <a
@@ -46,27 +42,27 @@ const Login = () => {
   else {
 
     return (
-      <div className="h-screen w-full bg-zinc-800 flex justify-center items-center -z-30">
+      <div className="h-screen w-full bg-zinc-950 flex justify-center items-center flex-col -z-30">
         <BackgroundBeamsWithCollision children={undefined} />
         <SignInFormDemo />
         <p
-            className="
+          className="
     absolute text-white 
-    left-[15%] bottom-[15%] 
-    sm:left-[10%] sm:bottom-[20%] 
-    md:left-[35%] md:bottom-[15%] 
-    xl:left-[40%] xl:bottom-[13%] 
-    m-3 z-50
+     bottom-[20%] 
+    sm:bottom-[20%] 
+     md:bottom-[15%] 
+    xl:bottom-[17%] 
+    z-50
   "
+        >
+          Already have Account?{" "}
+          <a
+            className="text-blue-600 cursor-pointer"
+            onClick={changeMode}
           >
-            Already have Account?{" "}
-            <a
-              className="text-blue-600 cursor-pointer"
-              onClick={changeMode}
-            >
-              Sign Up
-            </a>
-          </p>
+            Sign Up
+          </a>
+        </p>
       </div>
 
     )
