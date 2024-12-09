@@ -10,6 +10,7 @@ import ThemeContext from "../../../contexts/theme/ThemeContext";
 // import { div } from "framer-motion/client";
 import { BackgroundBeams } from "../support/background-beams";
 // import BackgroundBeamsDemo from "./Background-Beams";
+import { Link } from "react-router-dom";
 
 
 export function SignupFormDemo() {
@@ -75,6 +76,7 @@ export function SignupFormDemo() {
           <Input id="confirm-password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
 
+        <Link to='/home'>
         <button
           className={cn(
             `bg-gradient-to-br relative group/btn block w-full ${context?.theme === 'light' ? 'text-black' : 'text-white'} rounded-md h-10 font-medium`,
@@ -87,6 +89,7 @@ export function SignupFormDemo() {
           Sign up &rarr;
           <BottomGradient />
         </button>
+        </Link>
 
         <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
 
