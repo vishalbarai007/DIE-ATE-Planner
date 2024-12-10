@@ -13,21 +13,16 @@ export const useSidebar = () => {
   return context;
 };
 
-export const SidebarProvider = ({
-  children,
-  open: openProp,
-  setOpen: setOpenProp,
-  animate = true
-}) => {
+export const SidebarProvider = ({ children, open: openProp, setOpen: setOpenProp, animate = true }) => {
   const [openState, setOpenState] = useState(false);
 
-  const open = openProp !== undefined ? openProp : openState;
-  const setOpen = setOpenProp !== undefined ? setOpenProp : setOpenState;
+  const open = openProp ?? openState;
+  const setOpen = setOpenProp ?? setOpenState;
 
   return (
-    (<SidebarContext.Provider value={{ open, setOpen, animate: animate }}>
+    <SidebarContext.Provider value={{ open, setOpen, animate }}>
       {children}
-    </SidebarContext.Provider>)
+    </SidebarContext.Provider>
   );
 };
 
@@ -122,7 +117,6 @@ export const DesktopSidebar = ({
       </div>
     );
   };
-  
 
 export const SidebarLink = ({
   link,
