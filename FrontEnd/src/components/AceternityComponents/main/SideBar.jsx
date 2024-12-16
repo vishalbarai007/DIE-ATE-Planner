@@ -7,7 +7,7 @@ import { cn } from "../../../lib/utils";
 export function SidebarDemo() {
   const links = [
     { label: "Dashboard", href: "#", icon: <IconBrandTabler className="icon" /> },
-    { label: "Profile", href: "#", icon: <IconUserBolt className="icon" /> },
+    { label: "Profile", href: "/profile", icon: <IconUserBolt className="icon" /> },
     { label: "Ask AI", href: "#", icon: <IconBrain className="icon" /> },
     { label: "Logout", href: "#", icon: <IconArrowLeft className="icon" /> },
   ];
@@ -51,7 +51,7 @@ export const Logo = () => (
   <a href="#" className="logo">
     <div className="logo-icon" />
     <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      Acet Labs
+      DIE-ATE Planner
     </motion.span>
   </a>
 );

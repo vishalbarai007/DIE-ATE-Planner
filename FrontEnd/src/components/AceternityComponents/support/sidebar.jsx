@@ -63,6 +63,8 @@ export const DesktopSidebar = ({
         }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
+        onClick={() => setOpen(false)}
+
         {...props}
       >
         {children}
