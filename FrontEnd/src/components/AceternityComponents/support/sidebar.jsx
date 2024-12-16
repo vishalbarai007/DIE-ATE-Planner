@@ -2,6 +2,7 @@ import { cn } from "../../../lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import ThemeContext from "../../../contexts/theme/ThemeContext";
 
 const SidebarContext = createContext(undefined);
 
@@ -52,10 +53,11 @@ export const DesktopSidebar = ({
     ...props
   }) => {
     const { open, setOpen, animate } = useSidebar();
+    const contextTheme = useContext(ThemeContext);
     return (
       <motion.div
         className={cn(
-          "h-full w-[50%] fixed inset-0 z-30 px-4 py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800",
+          `h-full w-[50%] fixed inset-0 z-30 px-4 py-4 hidden md:flex md:flex-col ${contextTheme.theme === 'light' ? 'bg-neutral-100' : 'bg-black'} dark:bg-neutral-800`,
           className
         )}
         animate={{
@@ -118,26 +120,39 @@ export const DesktopSidebar = ({
     );
   };
 
-export const SidebarLink = ({
-  link,
-  className,
-  ...props
-}) => {
-  const { open, animate } = useSidebar();
-  return (
-    (<a
-      href={link.href}
-      className={cn("flex items-center justify-start gap-2  group/sidebar py-2", className)}
-      {...props}>
-      {link.icon}
-      <motion.span
-        animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
-          opacity: animate ? (open ? 1 : 0) : 1,
-        }}
-        className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0">
-        {link.label}
-      </motion.span>
-    </a>)
-  );
-};
+  export const SidebarLink = ({
+    link,
+    className,
+    ...props
+  }) => {
+    const { open, animate } = useSidebar();
+    const contextTheme = useContext(ThemeContext); // Access the theme context
+    const textColor = contextTheme?.theme === "dark" ? "text-white" : "text-black"; // Determine color based on theme
+  
+    return (
+      <a
+        href={link.href}
+        className={cn(
+          "flex items-center justify-start gap-2 group/sidebar py-2",
+          className
+        )}
+        {...props}
+      >
+        {/* Apply dynamic color to the icon */}
+        {React.cloneElement(link.icon, { className: cn("icon", textColor) })}
+        <motion.span
+          animate={{
+            display: animate ? (open ? "inline-block" : "none") : "inline-block",
+            opacity: animate ? (open ? 1 : 0) : 1,
+          }}
+          className={cn(
+            "text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0",
+            textColor // Apply dynamic color to text
+          )}
+        >
+          {link.label}
+        </motion.span>
+      </a>
+    );
+  };
+  

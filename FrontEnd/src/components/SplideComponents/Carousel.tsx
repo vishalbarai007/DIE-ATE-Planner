@@ -3,12 +3,9 @@ import { useState } from 'react';
 import { BackgroundLines } from '../AceternityComponents/support/background-lines';
 import { Input } from '../AceternityComponents/support/input';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import ThemeContext from '../../contexts/theme/ThemeContext';
-
 
 const Carousel = () => {
-    const context = useContext(ThemeContext);
+    
     const [goal, setGoal] = useState<string | null>(null); // To store the selected goal
     // const [formData, setFormData] = useState<any>({}); // To store the entire form data
 
@@ -64,25 +61,7 @@ const Carousel = () => {
                                         Enter your age
                                     </h1>
                                     <Input type="number" name="age" id="age" placeholder="Age" />
-                                    <div className="flex items-center">
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input
-                                                type="checkbox"
-                                                className="sr-only peer"
-                                                checked={context?.theme === 'dark'}
-                                                onChange={context?.changeTheme}
-                                            />
-                                            <div
-                                                className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-500
-                 peer-focus:ring-2 peer-focus:ring-blue-300 peer-focus:outline-none 
-                 before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full 
-                 before:bg-white before:transition-all before:translate-x-1 peer-checked:before:translate-x-6"
-                                            ></div>
-                                            <span className="ml-3 text-sm font-medium text-white dark:text-gray-300">
-                                                {context?.theme === 'light' ? "Light Mode" : "Dark Mode"}
-                                            </span>
-                                        </label>
-                                    </div>
+                                    
 
                                 </div>
                             </BackgroundLines>
