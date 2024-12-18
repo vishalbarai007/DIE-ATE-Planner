@@ -49,7 +49,7 @@ export function SidebarDemo() {
           </div>
         </SidebarBody>
       </Sidebar>
-      <Dashboard />
+      {/* <Dashboard /> */}
     </div>
   );
 }
@@ -69,19 +69,19 @@ export const LogoIcon = () => (
   </a>
 );
 
-const Dashboard = () => (
-  <div className="flex flex-1 bg-white dark:bg-neutral-900 p-4">
-    <div className="w-full h-full flex flex-col gap-4">
-      <div className="flex gap-4">
-        {[...new Array(4)].map((_, i) => (
-          <div key={i} className="h-20 flex-1 bg-gray-200 rounded-lg animate-pulse" />
-        ))}
-      </div>
-      <div className="flex flex-1 gap-4">
-        {[...new Array(2)].map((_, i) => (
-          <div key={i} className="flex-1 bg-gray-200 rounded-lg animate-pulse" />
-        ))}
-      </div>
-    </div>
-  </div>
-);
+// const Dashboard = () => (
+//   <div className="flex flex-1 bg-white dark:bg-neutral-900 p-4">
+//     <div className="w-full h-full flex flex-col gap-4">
+//       <div className="flex gap-4">
+//         {[...new Array(4)].map((_, i) => (
+//           <div key={i} className="h-20 flex-1 bg-gray-200 rounded-lg animate-pulse" />
+//         ))}
+//       </div>
+//       <div className="flex flex-1 gap-4">
+//         {[...new Array(2)].map((_, i) => (
+//           <div key={i} className="flex-1 bg-gray-200 rounded-lg animate-pulse" />
+//         ))}
+//       </div>
+//     </div>
+//   </div>
+// );

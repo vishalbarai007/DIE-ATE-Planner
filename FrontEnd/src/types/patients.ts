@@ -10,11 +10,12 @@ export interface PatientContact {
     dateOfBirth: string;
     nextOfKin: string;
     previousVisit: string;
-    nextVisit: string;
     allergies: string;
+    disease: string;
   }
   
-  export interface LabResult {
+  export interface HealthResult {
+    HealthResults: any;
     name: string;
     size: string;
     type: string;
@@ -26,7 +27,11 @@ export interface PatientContact {
     image: string;
     contact: PatientContact;
     overview: PatientOverview;
-    labResults: LabResult[];
+    // HealthResults: HealthResult[];
+  }
+
+  export interface HealthResultData {
+    HealthResults: HealthResult[];
   }
   
   
