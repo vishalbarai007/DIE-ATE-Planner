@@ -4,8 +4,8 @@ import { BackgroundLines } from '../AceternityComponents/support/background-line
 import { Input } from '../AceternityComponents/support/input';
 import { Link } from 'react-router-dom';
 
-
 const Carousel = () => {
+    
     const [goal, setGoal] = useState<string | null>(null); // To store the selected goal
     // const [formData, setFormData] = useState<any>({}); // To store the entire form data
 
@@ -61,6 +61,8 @@ const Carousel = () => {
                                         Enter your age
                                     </h1>
                                     <Input type="number" name="age" id="age" placeholder="Age" />
+                                    
+
                                 </div>
                             </BackgroundLines>
                         </div>
@@ -152,14 +154,14 @@ const Carousel = () => {
                                             </button>
                                         ))}
                                         <Link to="Login" >
-                                        <button
-                                            type="submit"
-                                            className="mt-6 ml-20 px-6 py-3 text-lg  border font-semibold bg-neutral-950 border-neutral-800 hover:bg-teal-600 rounded-lg"
+                                            <button
+                                                type="submit"
+                                                className="mt-6 ml-20 px-6 py-3 text-lg  border font-semibold bg-neutral-950 border-neutral-800 hover:bg-teal-600 rounded-lg"
                                             // onClick={handleSubmit}
 
-                                        >
-                                            Submit 
-                                        </button>
+                                            >
+                                                Submit
+                                            </button>
                                         </Link>
                                     </form>
                                 </div>
