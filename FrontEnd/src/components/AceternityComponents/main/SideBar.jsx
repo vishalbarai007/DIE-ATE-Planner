@@ -22,25 +22,6 @@ export function SidebarDemo() {
           <div className="flex flex-col flex-1 overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
-              <div className="flex items-center mt-5">
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="sr-only peer"
-                    checked={contextTheme?.theme === 'dark'}
-                    onChange={contextTheme?.changeTheme}
-                  />
-                  <div
-                    className="w-11 h-6 bg-gray-300 rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-500
-                               peer-focus:ring-2 peer-focus:ring-blue-300 peer-focus:outline-none 
-                               before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full 
-                               before:bg-white before:transition-all before:translate-x-1 peer-checked:before:translate-x-6"
-                  ></div>
-                  <span className={`ml-3 text-sm font-medium ${contextTheme.theme === 'light' ? 'text-black': 'text-white'} dark:text-gray-300`}>
-                    {contextTheme?.theme === 'light' ? "Light Mode" : "Dark Mode"}
-                  </span>
-                </label>
-              </div>
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
@@ -53,14 +34,24 @@ export function SidebarDemo() {
   );
 }
 
-export const Logo = () => (
-  <a href="#" className="logo">
-    <div className="logo-icon" />
-    <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      DIE-ATE Planner
-    </motion.span>
-  </a>
-);
+export const Logo = () => {
+  const contextTheme = useContext(ThemeContext); // Access the theme context
+  const textColor = contextTheme?.theme === "dark" ? "text-white" : "text-black"; // Determine color based on theme
+
+  return (
+    <a href="#" className="logo">
+      <div className="logo-icon" />
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className={cn("text-lg font-bold", textColor)} // Apply dynamic text color
+      >
+        DIE-ATE Planner
+      </motion.span>
+    </a>
+  );
+};
+
 
 export const LogoIcon = () => (
   <a href="#" className="logo-icon-container">

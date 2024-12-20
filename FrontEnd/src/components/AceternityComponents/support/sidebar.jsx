@@ -48,31 +48,76 @@ export const SidebarBody = (props) => {
 };
 
 export const DesktopSidebar = ({
-    className,
-    children,
-    ...props
-  }) => {
-    const { open, setOpen, animate } = useSidebar();
-    const contextTheme = useContext(ThemeContext);
-    return (
-      <motion.div
-        className={cn(
-          `h-full w-[50%] fixed inset-0 z-30 px-4 py-4 hidden md:flex md:flex-col ${contextTheme.theme === 'light' ? 'bg-neutral-100' : 'bg-black'} dark:bg-neutral-800`,
-          className
-        )}
-        animate={{
-          width: animate ? (open ? "30vw" : "100px") : "30vw",
-        }}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        onClick={() => setOpen(false)}
+  className,
+  children,
+  ...props
+}) => {
+  const { open, setOpen, animate } = useSidebar();
+  const contextTheme = useContext(ThemeContext);
+  const [isHovered, setIsHovered] = useState(false); // Track hover state
 
-        {...props}
+  return (
+    <motion.div
+      className={cn(
+        `h-full w-[50%] fixed inset-0 z-30 px-4 py-4 hidden md:flex md:flex-col ${contextTheme.theme === 'light' ? 'bg-neutral-100' : 'bg-neutral-800'}`,
+        className
+      )}
+      style={{ overflow: 'hidden' }} // Prevent overflow from spilling out
+      animate={{
+        width: animate ? (open ? "30vw" : "100px") : "30vw",
+      }}
+      onMouseEnter={() => {
+        setOpen(true);
+        setIsHovered(true); // Set hover state
+      }}
+      onMouseLeave={() => {
+        setOpen(false);
+        setIsHovered(false); // Reset hover state
+      }}
+      {...props}
+    >
+      <div className="flex-1">{children}</div>
+
+      {/* Theme Switch positioned below all other content */}
+      <motion.div
+        className="mt-auto transition-all"
+        animate={{
+          opacity: isHovered ? 1 : 0, // Control visibility based on hover state
+          pointerEvents: isHovered ? "auto" : "none",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+        }}
       >
-        {children}
+        <label className="relative inline-flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            className="sr-only peer"
+            checked={contextTheme?.theme === 'dark'}
+            onChange={contextTheme?.changeTheme}
+          />
+          <div
+            className="w-11 h-6 bg-gray-300 rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-500
+              peer-focus:ring-2 peer-focus:ring-blue-300 peer-focus:outline-none 
+              before:content-[''] before:absolute before:w-5 before:h-5 before:rounded-full 
+              before:bg-white before:transition-all before:translate-x-1 peer-checked:before:translate-x-6"
+          ></div>
+          <span
+            className={`ml-3 text-sm font-medium ${
+              contextTheme.theme === "light" ? "text-black" : "text-white"
+            } dark:text-gray-300`}
+          >
+            {contextTheme?.theme === "light" ? "Light Mode" : "Dark Mode"}
+          </span>
+        </label>
       </motion.div>
-    );
-  };
+    </motion.div>
+  );
+};
+
+
+
   
   export const MobileSidebar = ({
     className,
@@ -80,10 +125,11 @@ export const DesktopSidebar = ({
     ...props
   }) => {
     const { open, setOpen } = useSidebar();
+    const contextTheme = useContext(ThemeContext);
     return (
       <div
         className={cn(
-          "fixed inset-0 z-40 flex flex-col md:hidden bg-neutral-100 dark:bg-neutral-800"
+          `fixed inset-0 z-40 flex flex-col md:hidden ${contextTheme.theme === 'light' ? 'bg-neutral-100' : 'bg-neutral-800'}`
         )}
         {...props}
       >

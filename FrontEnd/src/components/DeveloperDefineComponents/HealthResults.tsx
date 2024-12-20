@@ -1,6 +1,8 @@
 import { MoreVertical, Upload, UserIcon  as FilePdf } from 'lucide-react'
 import { HealthResult } from "../../types/patients"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from 'react'
+import ThemeContext from '../../contexts/theme/ThemeContext';
+import { useContext } from 'react'
 
 const HealthData: HealthResult = {
     HealthResults: [
@@ -15,12 +17,13 @@ const HealthData: HealthResult = {
 
 
 const HealthResults = () => {
+  const contextTheme = useContext(ThemeContext);
   return (
     <div>
-      <div className="bg-white p-4 sm:p-6 rounded-lg border">
+      <div className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'} p-4 sm:p-6 rounded-lg border`}>
             <div className="flex justify-between mb-4 sm:mb-6">
-              <h2 className="text-lg font-semibold">Health Results:</h2>
-              <button className="p-2 hover:bg-gray-100 rounded-lg">
+              <h2 className={`text-lg ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'} font-semibold`}>Health Results:</h2>
+              <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-500'} rounded-lg`}>
                 <MoreVertical className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
@@ -32,7 +35,7 @@ const HealthResults = () => {
                     <FilePdf className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium">{result.name}</p>
+                    <p className={`font-medium ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'}`}>{result.name}</p>
                     <p className="text-xs sm:text-sm text-gray-500">{result.size}</p>
                   </div>
                 </div>
