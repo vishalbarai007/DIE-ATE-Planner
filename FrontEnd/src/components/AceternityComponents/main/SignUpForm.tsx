@@ -1,3 +1,7 @@
+import { handleGoogleLoginWithRedirect } from "../../../../firebase";
+
+"use client";
+// import React, { useState } from "react";
 import { Label } from "../support/label";
 import { Input } from "../support/input";
 import { cn } from "../../../lib/utils";
@@ -93,7 +97,8 @@ export function SignupFormDemo() {
 
         <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
 
-        <div className="flex flex-col space-y-4">
+      </form>
+      <div className="flex flex-col space-y-4">
           <button
             className={cn(
               "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
@@ -113,27 +118,28 @@ export function SignupFormDemo() {
             <span>{context?.theme === 'light' ? "Yahoo " : "Yahoo "}</span>
             <BottomGradient />
           </button>
-          <button
-            className={cn(
-              "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
-              context?.theme === 'light'
-                ? "bg-gray-50 text-neutral-800 shadow-sm"
-                : "bg-zinc-800 text-white shadow-md"
-            )}
-            type="submit"
-          >
-            <IconBrandGoogle
+          <Link to='/home'>
+            <button
               className={cn(
-                "h-4 w-4 transition",
-                context?.theme === 'light' ? "text-neutral-800" : "text-white"
+                "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
+                context?.theme === 'light'
+                  ? "bg-gray-50 text-neutral-800 shadow-sm"
+                  : "bg-zinc-800 text-white shadow-md"
               )}
-            />
-            <span>{context?.theme === 'light' ? "Google" : "Google "}</span>
-            <BottomGradient />
-          </button>
-
+              type="submit"
+              onClick={handleGoogleLoginWithRedirect}
+            >
+              <IconBrandGoogle
+                className={cn(
+                  "h-4 w-4 transition",
+                  context?.theme === 'light' ? "text-neutral-800" : "text-white"
+                )}
+              />
+              <span>{context?.theme === 'light' ? "Google" : "Google "}</span>
+              <BottomGradient />
+            </button>
+          </Link>
         </div>
-      </form>
     </div>
     </BackgroundBeams>
 
