@@ -6,6 +6,7 @@ export interface PatientContact {
   }
   
   export interface PatientOverview {
+    // overview: any;
     gender: string;
     dateOfBirth: string;
     nextOfKin: string;
@@ -26,8 +27,6 @@ export interface PatientContact {
     name: string;
     image: string;
     contact: PatientContact;
-    overview: PatientOverview;
-    // HealthResults: HealthResult[];
   }
 
   export interface HealthResultData {

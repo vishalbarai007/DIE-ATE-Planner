@@ -1,12 +1,11 @@
-import { ArrowLeft, MoreVertical, Calendar, UserIcon as UserMd, Clipboard, Heart, User, CreditCard, FileText } from 'lucide-react'
+import { ArrowLeft, MoreVertical } from 'lucide-react'
 import { Patient } from '../../types/patients'
-import { ActionCard } from './ActionCard'
-// import { SidebarNav } from './Sidebar-nav'
 import HealthResults from './HealthResults'
 import { SidebarDemo } from '../AceternityComponents/main/SideBar'
-// import { SidebarNav } from '@/components/sidebar-nav'
-// import { ActionCard } from '@/components/action-card'
-// import type { Patient } from '@/types/patient'
+import PatientProfileActionCard from './PatientProfileActionCard'
+import OverView from './OverView'
+
+
 
 const patientData: Patient = {
   id: "1",
@@ -18,24 +17,16 @@ const patientData: Patient = {
     email: "VishalBaraiOfficial01@gmail.com",
     address: "15 Trevelyan Avenue, London, SW12 1J3"
   },
-  overview: {
-    gender: "Male",
-    dateOfBirth: "10/03/1987",
-    nextOfKin: "Dan Stevens",
-    previousVisit: "25/11/2020",
-    allergies: "Hayfever, crayfish",
-    disease: "Thyroid"
-  },
-  
+
 }
 
 export default function PatientProfile() {
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-zinc-900 flex">
       {/* <SidebarNav /> */}
-      <SidebarDemo/>
+      <SidebarDemo />
 
-      
+
       <div className="flex-1 p-4 sm:p-6 lg:p-8 ml-0 sm:ml-24">
         <div className="flex items-center gap-4 mb-6 sm:mb-8">
           <button className="p-2 hover:bg-gray-100 rounded-lg">
@@ -85,59 +76,18 @@ export default function PatientProfile() {
           </div>
 
           {/* Overview Card */}
-          <div className="bg-white p-4 sm:p-6 rounded-lg border">
-            <div className="flex justify-between mb-4 sm:mb-6">
-              <h2 className="text-lg font-semibold">Overview:</h2>
-              <button className="p-2 hover:bg-gray-100 rounded-lg">
-                <MoreVertical className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
-              <div>
-                <p className="text-gray-500 mb-1">Gender:</p>
-                <p>{patientData.overview.gender}</p>
-              </div>
-              <div>
-                <p className="text-gray-500 mb-1">Date of Birth:</p>
-                <p>{patientData.overview.dateOfBirth}</p>
-              </div>
-              <div>
-                <p className="text-gray-500 mb-1">Next of Kin:</p>
-                <p>{patientData.overview.nextOfKin}</p>
-              </div>
-              <div>
-                <p className="text-gray-500 mb-1">Previous Visit:</p>
-                <p>{patientData.overview.previousVisit}</p>
-              </div>
-              
-              <div>
-                <p className="text-gray-500 mb-1">Allergies:</p>
-                <p>{patientData.overview.allergies}</p>
-              </div>
-
-              <div>
-                <p className="text-gray-500 mb-1">Dieseas:</p>
-                <p>{patientData.overview.disease}</p>
-              </div>
-            </div>
+          <div>
+            <OverView />
           </div>
 
           {/* Lab Results Card */}
           <div>
-            <HealthResults/>
+            <HealthResults />
           </div>
 
           {/* Action Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ActionCard icon={Calendar} title="Appointments" className="bg-blue-50" />
-            <ActionCard icon={UserMd} title="Doctors" className="bg-teal-50" />
-            <ActionCard icon={Clipboard} title="Treatment" className="bg-green-50" />
-            <ActionCard icon={FileText} title="Tests & Results" className="bg-purple-50" />
-            <ActionCard icon={Heart} title="Vital Signs" className="bg-pink-50" />
-            <ActionCard icon={User} title="Partner Profile" className="bg-yellow-50" />
-            <ActionCard icon={CreditCard} title="Billing" className="bg-indigo-50" />
-            <ActionCard icon={FileText} title="Consent Forms" className="bg-gray-50" />
+          <div>
+            <PatientProfileActionCard />
           </div>
         </div>
       </div>
