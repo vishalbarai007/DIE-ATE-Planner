@@ -1,7 +1,7 @@
-import { ArrowLeft, MoreVertical, Upload, Calendar, UserIcon as UserMd, Clipboard, Heart, User, CreditCard, FileText, FileIcon as FilePdf } from 'lucide-react'
+import { ArrowLeft, MoreVertical, Calendar, UserIcon as UserMd, Clipboard, Heart, User, CreditCard, FileText } from 'lucide-react'
 import { Patient } from '../../types/patients'
 import { ActionCard } from './ActionCard'
-import { SidebarNav } from './Sidebar-nav'
+// import { SidebarNav } from './Sidebar-nav'
 import HealthResults from './HealthResults'
 import { SidebarDemo } from '../AceternityComponents/main/SideBar'
 // import { SidebarNav } from '@/components/sidebar-nav'
@@ -11,7 +11,7 @@ import { SidebarDemo } from '../AceternityComponents/main/SideBar'
 const patientData: Patient = {
   id: "1",
   name: "Mrs. Vishal Barai",
-  image: "/placeholder.svg",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH4Ui8-aKNWj9bB8P5rLObzIRt30lQ-wpIOg&s",
   contact: {
     phone1: "07723 456789",
     phone2: "01980 123456",
@@ -41,7 +41,7 @@ export default function PatientProfile() {
           <button className="p-2 hover:bg-gray-100 rounded-lg">
             <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
-          <h1 className="text-xl sm:text-2xl font-bold text-blue-900">Patient Profile</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-blue-900"> Profile</h1>
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-6">

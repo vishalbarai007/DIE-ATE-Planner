@@ -1,4 +1,4 @@
-import { ArrowLeft, MoreVertical, Upload, Calendar, UserIcon as UserMd, Clipboard, Heart, User, CreditCard, FileText, FileIcon as FilePdf } from 'lucide-react'
+import { MoreVertical, Upload, UserIcon  as FilePdf } from 'lucide-react'
 import { HealthResult } from "../../types/patients"
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from 'react'
 
