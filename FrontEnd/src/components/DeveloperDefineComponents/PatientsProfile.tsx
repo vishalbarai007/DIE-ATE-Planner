@@ -6,6 +6,7 @@ import PatientProfileActionCard from './PatientProfileActionCard'
 import OverView from './OverView'
 import ThemeContext from '../../contexts/theme/ThemeContext';
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 
 
@@ -32,9 +33,11 @@ export default function PatientProfile() {
 
       <div className="flex-1 p-4 sm:p-6 lg:p-8 ml-0 sm:ml-24">
         <div className="flex items-center gap-4 mb-6 sm:mb-8">
-          <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-200' : 'hover:bg-gray-600'} rounded-lg`}>
-            <ArrowLeft className={`w-5 h-5 sm:w-6 sm:h-6 ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'}`} />
-          </button>
+          <Link to='/home'>
+            <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-200' : 'hover:bg-gray-600'} rounded-lg`}>
+              <ArrowLeft className={`w-5 h-5 sm:w-6 sm:h-6 ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'}`} />
+            </button>
+          </Link>
           <h1 className={`text-xl sm:text-2xl font-bold ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'}`}> Profile</h1>
         </div>
 

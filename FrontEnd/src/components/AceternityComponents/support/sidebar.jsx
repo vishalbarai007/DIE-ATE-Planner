@@ -3,6 +3,7 @@ import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import ThemeContext from "../../../contexts/theme/ThemeContext";
+import { Link } from "react-router-dom";
 
 const SidebarContext = createContext(undefined);
 
@@ -178,8 +179,8 @@ export const DesktopSidebar = ({
     const textColor = contextTheme?.theme === "dark" ? "text-white" : "text-black"; // Determine color based on theme
   
     return (
-      <a
-        href={link.href}
+      <Link
+        to={link.href}
         className={cn(
           "flex items-center justify-start gap-2 group/sidebar py-2",
           className
@@ -200,7 +201,7 @@ export const DesktopSidebar = ({
         >
           {link.label}
         </motion.span>
-      </a>
+      </Link>
     );
   };
   
