@@ -6,13 +6,15 @@ import Login from "./pages/Login";
 import ThemeState from "./contexts/theme/ThemeState"
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import SplashScreen from "./components/DeveloperDefineComponents/SplashScreen";
 
 const App = () => {
   return (
     <ThemeState>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Intro />} />   
+        <Route path="/" element={<SplashScreen/>}/>
+        <Route path="/Intro" element={<Intro />} />   
         <Route path="/login" element={<Login/>} />   
         <Route path="/home" element={<Home/>} />        
         <Route path="/profile" element={<Profile/>} />               
