@@ -1,5 +1,3 @@
-Here’s a suggested **README** for your project:
-
 ---
 
 # Die-ATE Planner
