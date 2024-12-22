@@ -23,7 +23,7 @@ const OverView = () => {
       
   return (
     <div>
-          <div className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'} p-4 sm:p-6 rounded-lg border`}>
+          <div className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'} p-4 sm:p-6 rounded-lg shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300`}>
             <div className="flex justify-between mb-4 sm:mb-6">
               <h2 className={`${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'} text-lg font-semibold`}>Overview:</h2>
               <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-500'} rounded-lg`}>

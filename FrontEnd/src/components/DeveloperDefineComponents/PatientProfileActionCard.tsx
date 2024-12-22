@@ -1,24 +1,52 @@
-import { ActionCard } from './ActionCard'
-import { Calendar, UserIcon as UserMd, Clipboard, Heart, User, CreditCard, FileText } from 'lucide-react'
+import { useContext } from 'react';
+import { ActionCard } from './ActionCard';
+import { 
+  Calendar, 
+  UserIcon as UserMd, 
+  Clipboard, 
+  Heart, 
+  User, 
+  CreditCard, 
+  FileText 
+} from 'lucide-react';
 import ThemeContext from '../../contexts/theme/ThemeContext';
-import { useContext } from 'react'
 
 const PatientProfileActionCard = () => {
+  const contextTheme = useContext(ThemeContext);
+  
+  const cardClassName = `
+    w-full
+    ${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}
+     shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300 
+    p-4
+  `;
 
-    const contextTheme = useContext(ThemeContext);
+  const actions = [
+    { icon: Calendar, title: "Appointments" },
+    { icon: UserMd, title: "Doctors" },
+    { icon: Clipboard, title: "Treatment" },
+    { icon: FileText, title: "Tests & Results" },
+    { icon: Heart, title: "Vital Signs" },
+    { icon: User, title: "Partner Profile" },
+    { icon: CreditCard, title: "Billing" },
+    { icon: FileText, title: "Consent Forms" }
+  ];
 
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ActionCard icon={Calendar} title="Appointments" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={UserMd} title="Doctors" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={Clipboard} title="Treatment" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={FileText} title="Tests & Results" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={Heart} title="Vital Signs" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={User} title="Partner Profile" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={CreditCard} title="Billing" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-            <ActionCard icon={FileText} title="Consent Forms" className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}`} />
-        </div>
-    )
-}
+  return (
+    <div className="w-full p-4">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
+        {actions.map((action, index) => (
+          <div key={index} className="w-full">
+            <ActionCard
+              icon={action.icon}
+              title={action.title}
+              className={cardClassName}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default PatientProfileActionCard
+export default PatientProfileActionCard;
