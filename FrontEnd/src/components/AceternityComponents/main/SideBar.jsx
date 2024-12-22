@@ -7,10 +7,10 @@ import ThemeContext from "../../../contexts/theme/ThemeContext";
 
 export function SidebarDemo() {
   const links = [
-    { label: "Dashboard", href: "#", icon: <IconBrandTabler className="icon" /> },
+    { label: "Dashboard", href: "/home", icon: <IconBrandTabler className="icon" /> },
     { label: "Profile", href: "/profile", icon: <IconUserBolt className="icon" /> },
-    { label: "Ask AI", href: "#", icon: <IconBrain className="icon" /> },
-    { label: "Logout", href: "#", icon: <IconArrowLeft className="icon" /> },
+    { label: "Ask AI", href: "/home", icon: <IconBrain className="icon" /> },
+    { label: "Logout", href: "/home", icon: <IconArrowLeft className="icon" /> },
   ];
   const [open, setOpen] = useState(false);
   const contextTheme = useContext(ThemeContext);
