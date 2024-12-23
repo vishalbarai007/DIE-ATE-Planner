@@ -130,13 +130,13 @@ export const DesktopSidebar = ({
     return (
       <div
         className={cn(
-          `fixed inset-0 z-40 flex flex-col md:hidden ${contextTheme.theme === 'light' ? 'bg-neutral-100' : 'bg-neutral-800'}`
+          `fixed inset-0 z-40 flex flex-col md:hidden ${contextTheme.theme === 'light' ? 'bg-white' : 'bg-black'}`
         )}
         {...props}
       >
         <div className="h-10 px-4 flex items-center justify-between">
           <IconMenu2
-            className="text-neutral-800 dark:text-neutral-200"
+            className={`${contextTheme.theme === 'light' ? 'text-neutral-800' : 'text-neutral-100'}`}
             onClick={() => setOpen(!open)}
           />
         </div>
@@ -151,12 +151,12 @@ export const DesktopSidebar = ({
                 ease: "easeInOut",
               }}
               className={cn(
-                "fixed inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col",
+                `fixed inset-0 ${contextTheme.theme === 'light' ? 'bg-neutral-100' : 'bg-neutral-800'} p-10 z-[100] flex flex-col`,
                 className
               )}
             >
               <div
-                className="absolute right-10 top-10 text-neutral-800 dark:text-neutral-200"
+                className={`absolute right-10 top-10 ${contextTheme.theme === 'light' ? 'text-neutral-800' : 'text-neutral-100'}`}
                 onClick={() => setOpen(!open)}
               >
                 <IconX />
