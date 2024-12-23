@@ -31,7 +31,7 @@ const IconWrapper = ({ children }: { children: React.ReactNode }) => (
 
 export default function SplashScreen() {
   const navigate = useNavigate() // Initialize useNavigate
-  const isLoading = useLoading(4000) // 4 seconds for demo purposes
+  const isLoading = useLoading(3000) // 4 seconds for demo purposes
 
   useEffect(() => {
     if (!isLoading) {
