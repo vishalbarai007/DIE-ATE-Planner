@@ -130,7 +130,7 @@ export const DesktopSidebar = ({
     return (
       <div
         className={cn(
-          `fixed inset-0 z-40 flex flex-col md:hidden ${contextTheme.theme === 'light' ? 'bg-white' : 'bg-black'}`
+          `fixed inset-0 z-40 flex flex-col md:hidden bg-transparent`
         )}
         {...props}
       >

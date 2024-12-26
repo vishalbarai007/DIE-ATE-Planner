@@ -5,9 +5,8 @@ import PatientProfile from "../components/DeveloperDefineComponents/PatientsProf
 const Profile = () => {
     return (
         <div>
-      <SidebarDemo />
-
-            <PatientProfile/>
+            <SidebarDemo />
+            <PatientProfile />
         </div>
     )
 }
