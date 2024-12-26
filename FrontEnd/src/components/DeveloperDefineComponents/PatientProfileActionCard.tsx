@@ -33,7 +33,7 @@ const PatientProfileActionCard = () => {
   ];
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full">
       <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
         {actions.map((action, index) => (
           <div key={index} className="w-full">

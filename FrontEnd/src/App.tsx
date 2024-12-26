@@ -11,6 +11,7 @@ const App = () => {
   return (
     <ThemeState>
       <BrowserRouter>
+
       <Routes>
         <Route path="/" element={<SplashScreen/>}/>
         <Route path="/Intro" element={<Intro />} />   
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/home" element={<Home/>} />        
         <Route path="/profile" element={<Profile/>} />               
       </Routes>
+      
     </BrowserRouter>
     </ThemeState>
   )

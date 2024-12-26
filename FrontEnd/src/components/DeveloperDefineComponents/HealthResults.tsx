@@ -47,11 +47,11 @@ const HealthResults = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4 sm:mt-6">
-              <button className="flex items-center justify-center gap-2 px-4 py-2 text-sm text-teal-500 hover:bg-teal-50 rounded-lg">
+              <button className="flex items-center justify-center gap-2 px-4 py-2 text-sm text-blue-500 hover:bg-teal-50 hover:text-black rounded-lg">
                 <Upload className="w-4 h-4" />
                 Upload Files
               </button>
-              <button className="flex items-center justify-center gap-2 px-4 py-2 text-sm text-teal-500 hover:bg-teal-50 rounded-lg">
+              <button className="flex items-center justify-center gap-2 px-4 py-2 text-sm text-blue-500 hover:bg-teal-50 hover:text-black rounded-lg">
                 View All
               </button>
             </div>
@@ -60,4 +60,4 @@ const HealthResults = () => {
   )
 }
 
-export default HealthResults
+export default HealthResults;

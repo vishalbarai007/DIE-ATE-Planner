@@ -9,14 +9,12 @@ const OverView = () => {
   const contextTheme = useContext(ThemeContext);
 
     const PatientOverview: PatientOverview = {
-        // overview: {
           gender: "Male",
           dateOfBirth: "10/03/1987",
           nextOfKin: "Dan Stevens",
           previousVisit: "25/11/2020",
           allergies: "Hayfever, crayfish",
           disease: "Thyroid"
-        // },
       
       }
 
