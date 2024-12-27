@@ -16,7 +16,7 @@ const PatientProfileActionCard = () => {
   
   const cardClassName = `
     w-full
-    ${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}
+    ${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-gray-900'}
      shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300 
     p-4
   `;

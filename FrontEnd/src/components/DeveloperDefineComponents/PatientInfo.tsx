@@ -19,7 +19,7 @@ const PatientInfo = () => {
     const contextTheme = useContext(ThemeContext);
 
   const baseCardStyle = `
-    ${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'}
+    ${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-gray-900'}
     rounded-lg
     shadow-input
     border-2
@@ -53,8 +53,8 @@ const PatientInfo = () => {
               </div>
               <button 
                 className={`self-end md:self-start p-2 ${
-                  contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-700'
-                } rounded-lg transition-colors`}
+                  contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-700 text-teal-50'
+                } rounded-lg transition-colors `}
               >
                 <MoreVertical className="w-5 h-5 md:w-6 md:h-6" />
               </button>

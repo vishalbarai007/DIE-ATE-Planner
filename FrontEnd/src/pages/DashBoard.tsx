@@ -4,11 +4,10 @@ import { SidebarDemo } from "../components/AceternityComponents/main/SideBar"
 import PatientInfo from "../components/DeveloperDefineComponents/PatientInfo"
 import ThemeContext from '../contexts/theme/ThemeContext';
 import { useContext } from 'react';
+import NutrientDistribution from "../components/ChartComponents/NutrientDistribution";
 
 const DashBoard = () => {
   const contextTheme = useContext(ThemeContext);
-
-
   const textColorClass = contextTheme?.theme === 'light' ? 'text-black' : 'text-white';
 
   return (
@@ -29,6 +28,9 @@ const DashBoard = () => {
         <div>
           <PatientInfo />
 
+        </div>
+        <div>
+        <NutrientDistribution />
         </div>
 
       </div>

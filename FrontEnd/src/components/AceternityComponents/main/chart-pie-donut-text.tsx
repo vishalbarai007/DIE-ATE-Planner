@@ -55,7 +55,7 @@
 //                 style={{ background: config[item.name]?.color }}
 //               />
 //               <span className="font-medium tabular-nums">
-//                 {config[item.name]?.label}: {item.value}
+//                 {/* {config[item.name]?.label}: {item.value} */}
 //               </span>
 //             </div>
 //           ))}
