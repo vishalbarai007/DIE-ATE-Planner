@@ -10,7 +10,6 @@ const ThemeState = ({ children }: ThemeStateProps) => {
 
   const changeTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    console.log(theme);
   };
 
   return (
