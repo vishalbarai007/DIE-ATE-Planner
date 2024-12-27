@@ -21,6 +21,7 @@ const HealthResults = () => {
   return (
     <div>
       <div className={`${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-neutral-800'} p-4 sm:p-6 rounded-lg shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300`}>
+      
             <div className="flex justify-between mb-4 sm:mb-6">
               <h2 className={`text-lg ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'} font-semibold`}>Health Results:</h2>
               <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-500'} rounded-lg`}>
@@ -32,7 +33,7 @@ const HealthResults = () => {
               {HealthData.HealthResults.map((result: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; size: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined }, index: Key | null | undefined) => (
                 <div key={index} className="flex items-center gap-3">
                   <div className="p-2 bg-orange-100 rounded">
-                    <FilePdf className="w-4 h-4 sm:w-5 sm:h-5 text-orange-500" />
+                    <FilePdf className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
                   </div>
                   <div className="flex-1">
                     <p className={`font-medium ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'}`}>{result.name}</p>
@@ -40,10 +41,6 @@ const HealthResults = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div>
-              
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4 sm:mt-6">
@@ -55,6 +52,7 @@ const HealthResults = () => {
                 View All
               </button>
             </div>
+
           </div>
     </div>
   )

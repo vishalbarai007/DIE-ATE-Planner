@@ -3,7 +3,7 @@ import DashBoard from './DashBoard'
 
 export default function Home() {
   return (
-    <div className='w-full'>
+    <div className=''>
       <SidebarDemo/>
       <DashBoard/>
     </div>
