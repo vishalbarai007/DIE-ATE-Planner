@@ -6,7 +6,7 @@ import { PieChart, Pie, Cell, Label, Tooltip } from "recharts";
 const chartData = [
   { nutrient: "Proteins", value: 40, color: "rgba(255, 87, 51, 0.3)", border: "rgba(255, 87, 51, 0.8)" }, // Semi-transparent Orange
   { nutrient: "Carbohydrates", value: 35, color: "rgba(51, 255, 87, 0.3)", border: "rgba(51, 255, 87, 0.8)" }, // Semi-transparent Green
-  { nutrient: "Fats", value: 15, color: "rgba(51, 87, 255, 0.3)",  border: "rgba(51, 87, 255, 0.8)" }, // Semi-transparent Blue
+  { nutrient: "Fats", value: 15, color: "rgba(51, 87, 255, 0.3)", border: "rgba(51, 87, 255, 0.8)" }, // Semi-transparent Blue
   { nutrient: "Vitamins", value: 5, color: "rgba(255, 215, 0, 0.3)", border: "rgba(255, 215, 0, 0.8)" }, // Semi-transparent Yellow
   { nutrient: "Minerals", value: 5, color: "rgba(255, 51, 161, 0.3)", border: "rgba(255, 51, 161, 0.8)" }, // Semi-transparent Pink
 ];
@@ -18,11 +18,19 @@ export default function NutrientPieDonutChart() {
   );
 
   return (
-    <div className="flex flex-col items-center gap-4 border rounded-lg shadow-md p-4 bg-gray-900">
+    <div className="flex flex-col items-center gap-4 p-4 bg-gray-900 rounded-lg
+    shadow-input
+    border-2
+    border-blue-500
+    shadow-blue-500/50
+    hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)]
+    hover:border-blue-500
+    transition-all
+    duration-300">
       {/* Header */}
       <div className="text-center">
         <h3 className="text-lg text-teal-50 font-semibold">Nutrient Distribution</h3>
-        <p className="text-sm text-gray-400">Dietary Intake - 2024</p>
+        <p className="text-sm text-gray-400">Monthly Dietary Intake - December 2024</p>
       </div>
 
       {/* Body */}
@@ -79,7 +87,7 @@ export default function NutrientPieDonutChart() {
           <Tooltip
             contentStyle={{ backgroundColor: "#333", border: "1px dotted white" }}
             itemStyle={{ color: "#fff" }}
-            formatter={(value: number, name: string) => [`${value} units`, name]}
+            formatter={(value: number, name: string) => [`${value}%`, name]}
           />
         </PieChart>
       </div>

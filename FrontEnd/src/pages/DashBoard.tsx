@@ -5,6 +5,10 @@ import PatientInfo from "../components/DeveloperDefineComponents/PatientInfo"
 import ThemeContext from '../contexts/theme/ThemeContext';
 import { useContext } from 'react';
 import NutrientDistribution from "../components/ChartComponents/NutrientDistribution";
+import MealTimingChart from "../components/ChartComponents/MealTime";
+import WeightProgressChart from "../components/ChartComponents/WeightProgress";
+import NutrientExcess from "../components/ChartComponents/NutrientExcess&Deficiencies";
+import SeasonalFoodChart from "../components/ChartComponents/SeasonalFood";
 
 const DashBoard = () => {
   const contextTheme = useContext(ThemeContext);
@@ -27,11 +31,31 @@ const DashBoard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <div>
           <PatientInfo />
-
         </div>
+      <div>
+
+      </div>
+
         <div>
         <NutrientDistribution />
         </div>
+
+        <div>
+          <MealTimingChart/>
+        </div>
+
+        <div>
+          <WeightProgressChart/>
+        </div>
+
+        <div>
+          <NutrientExcess/>
+        </div>
+
+        <div>
+          <SeasonalFoodChart/>
+        </div>
+
 
       </div>
     </div>

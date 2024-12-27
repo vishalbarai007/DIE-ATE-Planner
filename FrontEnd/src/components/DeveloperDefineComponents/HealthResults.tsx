@@ -24,7 +24,7 @@ const HealthResults = () => {
       
             <div className="flex justify-between mb-4 sm:mb-6">
               <h2 className={`text-lg ${contextTheme?.theme === 'light' ? 'text-black' : 'text-white'} font-semibold`}>Health Results:</h2>
-              <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-500 text-teal-50'} rounded-lg`}>
+              <button className={`p-2 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-100' : 'hover:bg-gray-700 text-teal-50'} rounded-lg`}>
                 <MoreVertical className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
