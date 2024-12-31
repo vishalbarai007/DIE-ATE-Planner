@@ -1,7 +1,7 @@
-import { handleGoogleLoginWithRedirect } from "../../../../firebase";
+import { handleGoogleLoginWithRedirect, handleGoogleLoginWithPopup, signUp } from "../../../../firebase";
 
 "use client";
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { Label } from "../support/label";
 import { Input } from "../support/input";
 import { cn } from "../../../lib/utils";
@@ -14,15 +14,44 @@ import ThemeContext from "../../../contexts/theme/ThemeContext";
 // import { div } from "framer-motion/client";
 import { BackgroundBeams } from "../support/background-beams";
 // import BackgroundBeamsDemo from "./Background-Beams";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 export function SignupFormDemo() {
   const context = useContext(ThemeContext);
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted");
-  // };
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const introData = location.state;
+
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    cpassword: ""
+  });
+
+  const goToHome = () => {
+    navigate("/home");
+  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    signUp(formData, introData, goToHome);
+  };
+
+  const handleGoogleLogin = () =>{
+    console.log("sign", introData)
+    handleGoogleLoginWithPopup(introData, goToHome);
+  }
 
   return (
     <BackgroundBeams>
@@ -41,21 +70,21 @@ export function SignupFormDemo() {
         Login to get your Diet Details.
       </p>
 
-      <form className="my-8">
+      <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname" className={cn(
               "h-4 transition",
               context?.theme === 'light' ? "text-neutral-800" : "text-white"
             )}>First name</Label>
-            <Input id="firstname" placeholder="Hritik" type="text" />
+            <Input id="firstname" placeholder="Hritik" type="text" name="firstname" value={formData.firstname} onChange={handleChange}/>
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname" className={cn(
               "h-4 transition",
               context?.theme === 'light' ? "text-neutral-800" : "text-white"
             )}>Last name</Label>
-            <Input id="lastname" placeholder="Gay" type="text" />
+            <Input id="lastname" placeholder="Gay" type="text" name="lastname" value={formData.lastname} onChange={handleChange}/>
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
@@ -63,24 +92,23 @@ export function SignupFormDemo() {
             "h-4 transition",
             context?.theme === 'light' ? "text-neutral-800" : "text-white"
           )}>Email Address</Label>
-          <Input id="email" placeholder="hritikasuur@gmail.com" type="email" />
+          <Input id="email" placeholder="hritikasuur@gmail.com" type="email" name="email" value={formData.email} onChange={handleChange}/>
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password" className={cn(
             "h-4 transition",
             context?.theme === 'light' ? "text-neutral-800" : "text-white"
           )}>Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input id="password" placeholder="••••••••" type="password" name="password" value={formData.password} onChange={handleChange}/>
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="confirm-password" className={cn(
             "h-4 transition",
             context?.theme === 'light' ? "text-neutral-800" : "text-white"
           )}>Confirm Password</Label>
-          <Input id="confirm-password" placeholder="••••••••" type="password" />
+          <Input id="confirm-password" placeholder="••••••••" type="password" name="cpassword" value={formData.cpassword} onChange={handleChange}/>
         </LabelInputContainer>
 
-        <Link to='/home'>
         <button
           className={cn(
             `bg-gradient-to-br relative group/btn block w-full ${context?.theme === 'light' ? 'text-black' : 'text-white'} rounded-md h-10 font-medium`,
@@ -93,12 +121,9 @@ export function SignupFormDemo() {
           Sign up &rarr;
           <BottomGradient />
         </button>
-        </Link>
 
         <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
-
-      </form>
-      <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4">
           <button
             className={cn(
               "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
@@ -118,7 +143,6 @@ export function SignupFormDemo() {
             <span>{context?.theme === 'light' ? "Yahoo " : "Yahoo "}</span>
             <BottomGradient />
           </button>
-          <Link to='/home'>
             <button
               className={cn(
                 "relative group/btn flex space-x-2 items-center justify-start px-4 w-full rounded-md h-10 font-medium transition",
@@ -127,7 +151,7 @@ export function SignupFormDemo() {
                   : "bg-zinc-800 text-white shadow-md"
               )}
               type="submit"
-              onClick={handleGoogleLoginWithRedirect}
+              onClick={handleGoogleLogin}
             >
               <IconBrandGoogle
                 className={cn(
@@ -138,8 +162,8 @@ export function SignupFormDemo() {
               <span>{context?.theme === 'light' ? "Google" : "Google "}</span>
               <BottomGradient />
             </button>
-          </Link>
         </div>
+      </form>
     </div>
     </BackgroundBeams>
 
