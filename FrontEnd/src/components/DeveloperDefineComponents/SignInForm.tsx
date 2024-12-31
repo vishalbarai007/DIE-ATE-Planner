@@ -33,22 +33,12 @@ export function SignInFormDemo() {
         </p>
 
         <form className="my-8">
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-
-            <LabelInputContainer>
-              <Label htmlFor="lastname" className={cn(
-                "h-4 transition",
-                context?.theme === 'light' ? "text-neutral-800" : "text-white"
-              )}>User name</Label>
-              <Input id="Username" placeholder="Gay" type="text" />
-            </LabelInputContainer>
-          </div>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email" className={cn(
               "h-4 transition",
               context?.theme === 'light' ? "text-neutral-800" : "text-white"
             )}>Email Address</Label>
-            <Input id="email" placeholder="hritikasuur@gmail.com" type="email" />
+            <Input id="email" placeholder="hritikchodunandan@gmail.com" type="email" />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password" className={cn(
