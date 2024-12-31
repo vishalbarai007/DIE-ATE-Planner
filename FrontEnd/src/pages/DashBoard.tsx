@@ -17,43 +17,45 @@ const DashBoard = () => {
   return (
     <div className="flex-1 p-4 sm:p-6 lg:p-8 ml-0 sm:ml-24">
       <SidebarDemo />
-       {/* Header */}
-       <div className="flex items-center gap-4 mb-6 sm:mb-8">
-          <Link to='/login'>
-            <button className={`p-2 mt-5 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-200' : 'hover:bg-gray-600'} rounded-lg`}>
-              <ArrowLeft className={`w-5 h-5 sm:w-6 sm:h-6 ${textColorClass}`} />
-            </button>
-          </Link>
-          <h1 className={`text-xl mt-5 sm:text-2xl font-bold ${textColorClass}`}>DashBoard</h1>
-        </div>
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-6 sm:mb-8">
+        <Link to='/login'>
+          <button className={`p-2 mt-5 ${contextTheme?.theme === 'light' ? 'hover:bg-gray-200' : 'hover:bg-gray-600'} rounded-lg`}>
+            <ArrowLeft className={`w-5 h-5 sm:w-6 sm:h-6 ${textColorClass}`} />
+          </button>
+        </Link>
+        <h1 className={`text-xl mt-5 sm:text-2xl font-bold ${textColorClass}`}>DashBoard</h1>
+      </div>
 
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         <div>
           <PatientInfo />
         </div>
-      <div>
-
-      </div>
 
         <div>
-        <NutrientDistribution />
+        </div>
+
+        <div></div>
+
+        <div>
+          <NutrientDistribution />
         </div>
 
         <div>
-          <MealTimingChart/>
+          <MealTimingChart />
         </div>
 
         <div>
-          <WeightProgressChart/>
+          <WeightProgressChart />
         </div>
 
         <div>
-          <NutrientExcess/>
+          <NutrientExcess />
         </div>
 
         <div>
-          <SeasonalFoodChart/>
+          <SeasonalFoodChart />
         </div>
 
 

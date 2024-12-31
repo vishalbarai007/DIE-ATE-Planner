@@ -22,14 +22,14 @@ const PatientProfileActionCard = () => {
   `;
 
   const actions = [
-    { icon: Calendar, title: "Appointments" },
-    { icon: UserMd, title: "Doctors" },
-    { icon: Clipboard, title: "Treatment" },
-    { icon: FileText, title: "Tests & Results" },
-    { icon: Heart, title: "Vital Signs" },
-    { icon: User, title: "Partner Profile" },
-    { icon: CreditCard, title: "Billing" },
-    { icon: FileText, title: "Consent Forms" }
+    { icon: Calendar, title: "Personal Details" },
+    { icon: UserMd, title: "Health Details" },
+    { icon: Clipboard, title: "Goal Details" },
+    { icon: FileText, title: "Food Details" },
+    { icon: Heart, title: "Daily Activity Details" },
+    { icon: User, title: "AI Diet Plans" },
+    { icon: CreditCard, title: "Graph Representation" },
+    { icon: FileText, title: "ETC." }
   ];
 
   return (

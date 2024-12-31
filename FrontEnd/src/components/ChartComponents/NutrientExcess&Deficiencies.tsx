@@ -20,7 +20,7 @@ const NutrientExcess: React.FC = () => {
     datasets: [
       {
         label: 'Actual Intake',
-        data: [100, 200, 60, 80, 70, 30], // Actual nutrient intake values
+        data: [100, 200, 60, 220, 70, 30], // Actual nutrient intake values
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 2,
@@ -80,4 +80,6 @@ const NutrientExcess: React.FC = () => {
   );
 };
 
+
 export default NutrientExcess;
+

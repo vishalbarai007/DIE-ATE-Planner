@@ -70,7 +70,7 @@ const MealTimingChart: React.FC = () => {
     hover:border-blue-500
     transition-all
     duration-300
-     bg-gray-900'>
+     bg-gray-900 '>
         
         <Bar data={data} options={options} />
     </div>
