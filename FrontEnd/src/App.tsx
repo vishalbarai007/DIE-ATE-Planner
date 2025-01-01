@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import SplashScreen from "./components/DeveloperDefineComponents/SplashScreen";
 import DashBoard from "./pages/DashBoard";
+import Graphs from "./pages/Graphs";
 
 const App = () => {
   return (
@@ -18,8 +19,9 @@ const App = () => {
           <Route path="/intro" element={<Intro />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/dashboard" element={<DashBoard />}  />  
-        <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/graphs" element={<Graphs />} />
         </Routes>
 
       </BrowserRouter>
