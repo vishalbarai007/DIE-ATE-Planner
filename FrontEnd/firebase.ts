@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword, User } from'firebase/auth';
+import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore'; 
 
 const firebaseConfig = {
@@ -25,7 +25,7 @@ enum Gender {
   Other = "other"
 }
 
-interface UserData{
+interface SignUpData{
   firstname: string,
   lastname: string,
   email: string,
@@ -33,21 +33,37 @@ interface UserData{
   cpassword: string
 }
 
-interface introData{
+interface SignInData{
+  email: string,
+  password: string
+}
+
+interface userData{
   age: number,
   gender: Gender,
   height: number,
   weight: number,
   issue: string,
-  goal: string
+  goal: string | null
 }
 
-const signUp = (formData: UserData, introInfo: introData, redirect: Function) => {
+const signUp = (formData: SignUpData, redirect: Function) => {
   createUserWithEmailAndPassword(auth, formData.email, formData.password)
   .then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
-    addPersonalData(introInfo, user.uid);
+    redirect(user.uid);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
+const signIn = (formData: SignInData, redirect: Function) => {
+  signInWithEmailAndPassword(auth, formData.email, formData.password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
     redirect();
   })
   .catch((error) => {
@@ -55,7 +71,7 @@ const signUp = (formData: UserData, introInfo: introData, redirect: Function) =>
   })
 }
 
-const handleGoogleLoginWithPopup = (introInfo: introData, redirect: Function) => {
+const handleGoogleLoginWithPopup = (redirect: Function) => {
     signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -69,8 +85,7 @@ const handleGoogleLoginWithPopup = (introInfo: introData, redirect: Function) =>
     console.log(user); // REMOVE LATER
     // IdP data available using getAdditionalUserInfo(result)
     // ...
-    addPersonalData(introInfo, user.uid);
-    redirect();
+    redirect(user.uid);
   }).catch((error) => {
     // // Handle Errors here.
     // const errorCode = error.code;
@@ -84,7 +99,7 @@ const handleGoogleLoginWithPopup = (introInfo: introData, redirect: Function) =>
   });
 }
 
-const handleGoogleLoginWithRedirect = (introInfo: introData, redirect: Function) => {
+const handleGoogleLoginWithRedirect = (redirect: Function) => {
   signInWithRedirect(auth, provider);
   getRedirectResult(auth)
   .then((result) => {
@@ -100,8 +115,7 @@ const handleGoogleLoginWithRedirect = (introInfo: introData, redirect: Function)
       console.log(user); // REMOVE LATER
       // IdP data available using getAdditionalUserInfo(result)
       // ...
-      addPersonalData(introInfo, user.uid);
-      redirect();
+      redirect(user.uid);
     }
   }).catch((error) => {
     // Handle Errors here.
@@ -116,7 +130,7 @@ const handleGoogleLoginWithRedirect = (introInfo: introData, redirect: Function)
   });
 }
 
-const addPersonalData = async (data: introData, id: string) => {
+const addPersonalData = async (data: userData, id: string) => {
   try {
     const docRef = await addDoc(collection(db, "personal-info"), { uid: id, ...data });
     console.log("Document written with ID: ", docRef.id);
@@ -125,5 +139,5 @@ const addPersonalData = async (data: introData, id: string) => {
   }
 }
 
-export { handleGoogleLoginWithPopup, handleGoogleLoginWithRedirect, signUp };
+export { handleGoogleLoginWithPopup, handleGoogleLoginWithRedirect, signUp, signIn, addPersonalData };
 

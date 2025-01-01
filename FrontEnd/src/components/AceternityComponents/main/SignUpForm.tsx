@@ -14,15 +14,13 @@ import ThemeContext from "../../../contexts/theme/ThemeContext";
 // import { div } from "framer-motion/client";
 import { BackgroundBeams } from "../support/background-beams";
 // import BackgroundBeamsDemo from "./Background-Beams";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export function SignupFormDemo() {
   const context = useContext(ThemeContext);
 
-  const location = useLocation();
   const navigate = useNavigate();
-  const introData = location.state;
 
   const [formData, setFormData] = useState({
     firstname: "",
@@ -32,8 +30,8 @@ export function SignupFormDemo() {
     cpassword: ""
   });
 
-  const goToHome = () => {
-    navigate("/home");
+  const goToIntro = (uid : string) => {
+    navigate("/intro", { state: uid });
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -45,12 +43,11 @@ export function SignupFormDemo() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    signUp(formData, introData, goToHome);
+    signUp(formData, goToIntro);
   };
 
   const handleGoogleLogin = () =>{
-    console.log("sign", introData)
-    handleGoogleLoginWithPopup(introData, goToHome);
+    handleGoogleLoginWithPopup(goToIntro);
   }
 
   return (

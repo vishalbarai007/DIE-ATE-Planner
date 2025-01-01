@@ -1,3 +1,7 @@
+import { handleGoogleLoginWithRedirect, handleGoogleLoginWithPopup, signIn } from "../../../firebase";
+
+"use client";
+import React, { useState } from "react";
 import { Label } from "../AceternityComponents/support/label";
 import { Input } from "../AceternityComponents/support/input";
 import { cn } from "../../lib/utils";
@@ -7,14 +11,39 @@ import {
 } from "@tabler/icons-react";
 import { useContext } from "react";
 import ThemeContext from "../../contexts/theme/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 
 export function SignInFormDemo() {
   const context = useContext(ThemeContext);
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted");
-  // };
+
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const goToHome = () => {
+    navigate("/home");
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    signIn(formData, goToHome);
+  };
+
+  const handleGoogleLogin = () =>{
+    handleGoogleLoginWithPopup(goToHome);
+  }
+
 
   return (
       <div
@@ -32,20 +61,20 @@ export function SignInFormDemo() {
           Login to get your Diet Details.
         </p>
 
-        <form className="my-8">
+        <form className="my-8" onSubmit={handleSubmit}>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email" className={cn(
               "h-4 transition",
               context?.theme === 'light' ? "text-neutral-800" : "text-white"
             )}>Email Address</Label>
-            <Input id="email" placeholder="hritikchodunandan@gmail.com" type="email" />
+            <Input id="email" placeholder="hritikchodunandan@gmail.com" type="email" name="email" onChange={handleChange} />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password" className={cn(
               "h-4 transition",
               context?.theme === 'light' ? "text-neutral-800" : "text-white"
             )}>Password</Label>
-            <Input id="password" placeholder="••••••••" type="password" />
+            <Input id="password" placeholder="••••••••" type="password" name="password" onChange={handleChange} />
           </LabelInputContainer>
 
 
@@ -92,6 +121,7 @@ export function SignInFormDemo() {
                   : "bg-zinc-800 text-white shadow-md"
               )}
               type="submit"
+              onClick={handleGoogleLogin}
             >
               <IconBrandGoogle
                 className={cn(

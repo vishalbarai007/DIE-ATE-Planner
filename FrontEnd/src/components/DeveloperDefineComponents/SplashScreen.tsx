@@ -56,7 +56,7 @@ export default function SplashScreen() {
   useEffect(() => {
     let timer: NodeJS.Timeout
     if (exitAnimation) {
-      timer = setTimeout(() => navigate('/Intro'), 1000)
+      timer = setTimeout(() => navigate('/login'), 1000)
     }
     return () => clearTimeout(timer)
   }, [exitAnimation, navigate])
