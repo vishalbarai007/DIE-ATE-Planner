@@ -1,4 +1,5 @@
-import { handleGoogleLoginWithRedirect, handleGoogleLoginWithPopup, signIn } from "../../../firebase";
+import { handleGoogleLoginWithPopup, signIn } from "../../../firebase";
+// handleGoogleLoginWithRedirect
 
 "use client";
 import React, { useState } from "react";

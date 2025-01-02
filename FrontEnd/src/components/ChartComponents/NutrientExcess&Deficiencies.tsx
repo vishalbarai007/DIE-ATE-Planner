@@ -52,7 +52,7 @@ const NutrientExcess: React.FC = () => {
       r: {
         beginAtZero: true,
         suggestedMin: 0,
-        suggestedMax: 250,
+        suggestedMax: 300,
         ticks: {
           stepSize: 50,
           color: 'black', // Tick text color
@@ -73,7 +73,7 @@ const NutrientExcess: React.FC = () => {
 
   return (
     <div
-      className="rounded-lg shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300 bg-gray-900"
+      className="h-fit w-full rounded-lg shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300 bg-gray-900"
     >
       <Radar data={data} options={options} />
     </div>
