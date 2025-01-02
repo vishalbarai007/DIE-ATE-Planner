@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from'firebase/auth';
+import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore'; 
 
 const firebaseConfig = {
@@ -46,6 +46,18 @@ interface userData{
   issue: string,
   goal: string | null
 }
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/auth.user
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
 
 const signUp = (formData: SignUpData, redirect: Function) => {
   createUserWithEmailAndPassword(auth, formData.email, formData.password)
@@ -130,6 +142,15 @@ const handleGoogleLoginWithRedirect = (redirect: Function) => {
   });
 }
 
+const Logout = () => {
+
+  signOut(auth).then(() => {
+    console.log("Logged Out Successfully.");
+  }).catch((error) => {
+    console.log("Error Logging Out.");
+  })
+}
+
 const addPersonalData = async (data: userData, id: string) => {
   try {
     const docRef = await addDoc(collection(db, "personal-info"), { uid: id, ...data });
@@ -139,5 +160,5 @@ const addPersonalData = async (data: userData, id: string) => {
   }
 }
 
-export { handleGoogleLoginWithPopup, handleGoogleLoginWithRedirect, signUp, signIn, addPersonalData };
+export { handleGoogleLoginWithPopup, handleGoogleLoginWithRedirect, signUp, signIn, Logout, addPersonalData };
 

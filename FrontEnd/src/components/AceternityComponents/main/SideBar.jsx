@@ -4,13 +4,14 @@ import { IconArrowLeft, IconBrandTabler, IconBrain, IconUserBolt } from "@tabler
 import { motion } from "framer-motion";
 import { cn } from "../../../lib/utils";
 import ThemeContext from "../../../contexts/theme/ThemeContext";
+import { Logout } from "../../../../firebase";
 
 export function SidebarDemo() {
   const links = [
     { label: "Dashboard", href: "/dashboard", icon: <IconBrandTabler className="icon" /> },
     { label: "Profile", href: "/profile", icon: <IconUserBolt className="icon" /> },
     { label: "Ask AI", href: "/home", icon: <IconBrain className="icon" /> },
-    { label: "Logout", href: "/home", icon: <IconArrowLeft className="icon" /> },
+    { label: "Logout", href: "/login", onclick: Logout, icon: <IconArrowLeft className="icon" /> },
   ];
   const [open, setOpen] = useState(false);
   const contextTheme = useContext(ThemeContext);
