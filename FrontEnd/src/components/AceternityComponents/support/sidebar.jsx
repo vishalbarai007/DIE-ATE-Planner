@@ -207,6 +207,7 @@ export const DesktopSidebar = ({
           className
         )}
         {...props}
+        onClick={link.onclick}
       >
         {/* Apply dynamic color to the icon */}
         {React.cloneElement(link.icon, { className: cn("icon", textColor) })}

@@ -1,13 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { 
-  getAuth, 
-  signInWithPopup, 
-  signInWithRedirect, 
-  getRedirectResult, 
-  GoogleAuthProvider, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword 
-} from 'firebase/auth';
+
+import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from'firebase/auth';
+
 import { getFirestore, collection, addDoc } from 'firebase/firestore'; 
 
 // Firebase configuration
@@ -59,7 +53,18 @@ interface userData {
   goal: string | null;
 }
 
-// Sign-up function
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/auth.user
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
 const signUp = (formData: SignUpData, redirect: Function) => {
   if (formData.password !== formData.cpassword) {
     console.error("Passwords do not match.");
@@ -107,6 +112,15 @@ const handleGoogleLoginWithPopup = (redirect: Function) => {
     });
 };
 
+const Logout = () => {
+
+  signOut(auth).then(() => {
+    console.log("Logged Out Successfully.");
+  }).catch((error) => {
+    console.log("Error Logging Out.");
+  })
+}
+
 // Google sign-in with redirect
 const handleGoogleLoginWithRedirect = (redirect: Function) => {
   signInWithRedirect(auth, provider);
@@ -136,13 +150,7 @@ const addPersonalData = async (data: userData, id: string) => {
   } catch (error) {
     console.error("Error adding document:", error);
   }
-};
+}
 
-// Export functions
-export { 
-  handleGoogleLoginWithPopup, 
-  handleGoogleLoginWithRedirect, 
-  signUp, 
-  signIn, 
-  addPersonalData 
-};
+export { handleGoogleLoginWithPopup, handleGoogleLoginWithRedirect, signUp, signIn, Logout, addPersonalData };
+
