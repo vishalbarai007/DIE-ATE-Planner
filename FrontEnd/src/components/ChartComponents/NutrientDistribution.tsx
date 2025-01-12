@@ -2,6 +2,8 @@
 
 import React from "react";
 import { PieChart, Pie, Cell, Label, Tooltip } from "recharts";
+import { useContext } from "react";
+import ThemeContext from "../../contexts/theme/ThemeContext";
 
 const chartData = [
   { nutrient: "Proteins", value: 40, color: "rgba(255, 87, 51, 0.3)", border: "rgba(255, 87, 51, 0.8)" }, // Semi-transparent Orange
@@ -12,13 +14,14 @@ const chartData = [
 ];
 
 export default function NutrientPieDonutChart() {
+  const contextTheme = useContext(ThemeContext);
   const totalNutrients = React.useMemo(
     () => chartData.reduce((acc, curr) => acc + curr.value, 0),
     []
   );
 
   return (
-    <div className="flex flex-col items-center gap-4 p-4 bg-gray-900 rounded-lg
+    <div className={`flex flex-col items-center gap-4 p-4 ${contextTheme?.theme === 'dark' ? 'bg-gray-900' : 'bg-white'} rounded-lg
     shadow-input
     border-2
     border-blue-500
@@ -26,11 +29,11 @@ export default function NutrientPieDonutChart() {
     hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)]
     hover:border-blue-500
     transition-all
-    duration-300">
+    duration-300`}>
       {/* Header */}
       <div className="text-center">
-        <h3 className="text-lg text-teal-50 font-semibold">Nutrient Distribution</h3>
-        <p className="text-sm text-gray-400">Monthly Dietary Intake - December 2024</p>
+        <h3 className={`text-lg ${contextTheme?.theme === 'dark' ? 'text-teal-50' : 'text-black'} font-semibold`}>Nutrient Distribution</h3>
+        <p className={`text-sm ${contextTheme?.theme === 'dark' ? 'text-gray-400' : 'text-black'}`}>Monthly Dietary Intake - December 2024</p>
       </div>
 
       {/* Body */}
@@ -67,14 +70,14 @@ export default function NutrientPieDonutChart() {
                       <tspan
                         x={viewBox.cx}
                         y={viewBox.cy}
-                        className="fill-teal-50 text-xl font-semibold"
+                        className={`${contextTheme?.theme === 'dark' ? 'fill-teal-50' : 'fill-black'} text-xl font-semibold`}
                       >
                         {totalNutrients}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
                         y={(viewBox.cy || 0) + 20}
-                        className="fill-gray-400 text-sm"
+                        className={`${contextTheme?.theme === 'dark' ? 'fill-gray-400' : 'fill-black'} text-sm`}
                       >
                         Nutrients
                       </tspan>
@@ -93,7 +96,7 @@ export default function NutrientPieDonutChart() {
       </div>
 
       {/* Footer */}
-      <div className="text-center text-sm text-gray-400">
+      <div className={`text-center text-sm ${contextTheme?.theme === 'dark' ? 'text-gray-400' : 'text-black'}`}>
         Nutrient breakdown for an average daily diet.
       </div>
     </div>
