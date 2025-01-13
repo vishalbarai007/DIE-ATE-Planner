@@ -4,14 +4,22 @@ import { IconArrowLeft, IconBrandTabler, IconBrain, IconUserBolt } from "@tabler
 import { motion } from "framer-motion";
 import { cn } from "../../../lib/utils";
 import ThemeContext from "../../../contexts/theme/ThemeContext";
+<<<<<<< Updated upstream
 // import { Logout } from "../../../../firebase";
+=======
+import { Logout } from "../../../../firebase";
+>>>>>>> Stashed changes
 
 export function SidebarDemo() {
   const links = [
     { label: "Dashboard", href: "/dashboard", icon: <IconBrandTabler className="icon" /> },
     { label: "Profile", href: "/profile", icon: <IconUserBolt className="icon" /> },
     { label: "Ask AI", href: "/home", icon: <IconBrain className="icon" /> },
+<<<<<<< Updated upstream
     { label: "Logout", href: "/login", icon: <IconArrowLeft className="icon" /> },
+=======
+    { label: "Logout", href: "/login", onclick: Logout, icon: <IconArrowLeft className="icon" /> },
+>>>>>>> Stashed changes
   ];
   const [open, setOpen] = useState(false);
   const contextTheme = useContext(ThemeContext);
