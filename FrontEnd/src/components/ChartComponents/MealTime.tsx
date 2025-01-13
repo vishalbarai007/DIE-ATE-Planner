@@ -9,10 +9,13 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { useContext } from 'react';
+import ThemeContext from '../../contexts/theme/ThemeContext';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const MealTimingChart: React.FC = () => {
+  const context = useContext(ThemeContext);
   // Dummy data for meal timings
   const data = {
     labels: ['Breakfast', 'Morning Snack', 'Lunch', 'Afternoon Snack', 'Evening snacks', 'Dinner'],
@@ -61,7 +64,7 @@ const MealTimingChart: React.FC = () => {
   };
 
   return (
-    <div className='rounded-lg
+    <div className={`rounded-lg
     shadow-input
     border-2
     border-blue-500
@@ -70,7 +73,7 @@ const MealTimingChart: React.FC = () => {
     hover:border-blue-500
     transition-all
     duration-300
-     bg-gray-900 '>
+     ${context?.theme === 'dark' ? 'bg-gray-900' : 'bg-blue-100'}`}>
         
         <Bar data={data} options={options} />
     </div>

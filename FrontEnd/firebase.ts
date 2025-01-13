@@ -57,13 +57,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
-<<<<<<< Updated upstream
     // const uid = user.uid;
-=======
-    const uid = user.uid;
-    console.log(uid);
-    
->>>>>>> Stashed changes
     // ...
   } else {
     // User is signed out
@@ -122,14 +116,8 @@ const Logout = () => {
 
   signOut(auth).then(() => {
     console.log("Logged Out Successfully.");
-<<<<<<< Updated upstream
   }).catch((error) => {
     console.log("Error Logging Out.", error);
-=======
-    alert("Logged Out Successfully.")
-  }).catch((_error) => {
-    console.log("Error Logging Out.");
->>>>>>> Stashed changes
   })
 }
 
