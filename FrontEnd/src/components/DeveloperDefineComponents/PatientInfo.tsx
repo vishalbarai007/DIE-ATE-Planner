@@ -19,7 +19,7 @@ const PatientInfo = () => {
     const contextTheme = useContext(ThemeContext);
 
   const baseCardStyle = `
-    ${contextTheme?.theme === 'light' ? 'bg-neutral-200' : 'bg-gray-900'}
+    ${contextTheme?.theme === 'light' ? 'bg-blue-100' : 'bg-gray-900'}
     rounded-lg
     shadow-input
     border-2
