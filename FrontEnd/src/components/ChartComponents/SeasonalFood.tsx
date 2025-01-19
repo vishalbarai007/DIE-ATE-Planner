@@ -8,10 +8,13 @@ import {
   Title,
 } from 'chart.js';
 import { Bubble } from 'react-chartjs-2';
+import { useContext } from 'react';
+import ThemeContext from '../../contexts/theme/ThemeContext';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend, Title);
 
 const SeasonalFoodChart: React.FC = () => {
+  const context = useContext(ThemeContext);
   // Dummy data for seasonal food availability
   const data = {
     datasets: [
@@ -80,7 +83,7 @@ const SeasonalFoodChart: React.FC = () => {
 
   return (
     <div
-    className="rounded-lg shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300 bg-gray-900"
+    className={`rounded-lg shadow-input border-2 border-blue-500 shadow-blue-500/50 hover:shadow-[0_0_10px_5px_rgba(0,119,255,1)] hover:border-blue-500 transition-all duration-300 ${context?.theme==='dark'?'bg-gray-900':'bg-blue-100'}`}
     >
       <Bubble data={data} options={options} />
     </div>

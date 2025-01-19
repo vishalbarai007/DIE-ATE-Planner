@@ -10,6 +10,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { useContext } from 'react';
+import ThemeContext from '../../contexts/theme/ThemeContext';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -64,8 +66,10 @@ const WeightProgressChart: React.FC = () => {
     },
   };
 
+  const context = useContext(ThemeContext);
+
   return (
-    <div className='rounded-lg
+    <div className={`rounded-lg
     shadow-input
     border-2
     border-blue-500
@@ -74,7 +78,7 @@ const WeightProgressChart: React.FC = () => {
     hover:border-blue-500
     transition-all
     duration-300
-     bg-gray-900'>
+     ${context?.theme==='dark'?'bg-gray-900':'bg-blue-100'}`}>
         <Line data={data} options={options} />
     </div>
   );
